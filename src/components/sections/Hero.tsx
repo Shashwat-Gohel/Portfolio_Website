@@ -5,10 +5,9 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 
 const ROLES = [
-  "Full Stack Developer",
-  "AI Engineer",
-  "ML Practitioner",
-  "Creative Technologist"
+  "Full stack developer",
+  "AI engineer",
+  "ML developer"
 ];
 
 const Typewriter = () => {
@@ -136,20 +135,17 @@ export const Hero = () => {
           transition={{ duration: 1.2, delay: 1.5 }}
           className="max-w-xl mx-auto space-y-8"
         >
-          <p className="text-base md:text-lg text-foreground/40 font-light leading-relaxed lowercase tracking-tight px-4">
-            Engineering architected digital ecosystems where precision,
-            performance, and aesthetics converge. Specialized in
-            full-stack development and machine learning.
+          <p className="text-base md:text-lg text-foreground/40 font-light leading-relaxed lowercase tracking-tight px-4 max-w-lg mx-auto">
+            I am a full-stack developer and freelancer building high-performance web applications. 
+            I also specialize in AI and Machine Learning, creating intelligent 
+            solutions that bridge the gap between complex algorithms and 
+            aesthetic digital experiences.
           </p>
 
-          <div className="flex justify-center gap-12 pt-4">
-            <Link href="/work" className="text-[11px] font-mono uppercase tracking-[0.4em] text-foreground/40 hover:text-foreground transition-all duration-500 py-3 group relative px-2">
-              <span className="relative z-10 transition-transform duration-500 group-hover:-translate-y-1 block">work_archive</span>
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
-            </Link>
-            <Link href="/contact" className="text-[11px] font-mono uppercase tracking-[0.4em] text-foreground/40 hover:text-foreground transition-all duration-500 py-3 group relative px-2">
-              <span className="relative z-10 transition-transform duration-500 group-hover:-translate-y-1 block">connect_node</span>
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+          <div className="flex justify-center pt-8">
+            <Link href="/work" className="text-[11px] font-mono uppercase tracking-[0.5em] text-foreground/50 hover:text-foreground transition-all duration-500 py-4 px-10 border border-foreground/10 hover:border-foreground/30 rounded-full group relative overflow-hidden bg-white/[0.02]">
+              <span className="relative z-10 group-hover:scale-110 block transition-transform duration-500">Let&apos;s Explore</span>
+              <div className="absolute inset-0 bg-accent/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </Link>
           </div>
         </motion.div>
