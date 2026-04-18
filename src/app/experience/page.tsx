@@ -30,13 +30,14 @@ export default function Experience() {
   ];
 
   return (
-    <main className="h-[100dvh] w-full bg-black flex flex-col items-center justify-center pt-16 sm:pt-12 p-3 sm:p-6 overflow-hidden relative z-[50]">
+    <main className="w-full bg-black flex flex-col items-center justify-center overflow-hidden relative z-[50]
+                     h-[100dvh] pt-[57px] md:pt-0 px-2 sm:px-4 md:px-6 pb-2 md:pb-6">
       <div className="absolute inset-0 bg-black -z-10" />
 
       <MacBookShell>
         <div ref={constraintsRef} className="relative h-full w-full p-4 flex flex-col pt-8 overflow-hidden">
           
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 p-8 overflow-y-auto w-full h-full content-start">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 p-4 sm:p-8 overflow-y-auto w-full h-full content-start">
             {experience.map((exp, i) => (
               <ProjectFolder 
                 key={i}
