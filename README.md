@@ -53,4 +53,3 @@ The system will be initialized at `http://localhost:3000`.
 
 ---
 
-### [shashwat.@ahduni.edu.in](mailto:shashwat.@ahduni.edu.in) // [zetalayers.com](https://zetalayers.com)
