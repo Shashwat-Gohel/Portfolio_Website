@@ -22,16 +22,19 @@ export default function StackLog() {
   const openWindow = (category: SkillCategory) => {
     setOpenWindows(prev => {
       const existing = prev.find(w => w.category.id === category.id);
-      if (existing) return prev;
-
-      const newZ = topZIndex + 1;
-      setTopZIndex(newZ);
       
-      const id = Math.random().toString(36).substr(2, 9);
+      const nextZ = topZIndex + 1;
+      setTopZIndex(nextZ);
+
+      if (existing) {
+        return prev.map(w => w.id === existing.id ? { ...w, zIndex: nextZ } : w);
+      }
+      
+      const id = Math.random().toString(36).substring(2, 11);
       const newWindow: WindowInstance = {
         id,
         category,
-        zIndex: newZ,
+        zIndex: nextZ,
       };
       
       return [...prev, newWindow];

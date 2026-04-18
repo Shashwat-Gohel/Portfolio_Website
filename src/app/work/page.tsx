@@ -32,27 +32,27 @@ export default function WorkArchive() {
 
   const openWindow = (type: 'finder' | 'log', data: any) => {
     setOpenWindows(prev => {
-      // For categories (finder), check if already open to avoid duplicates
-      if (type === 'finder') {
-        const existing = prev.find(w => w.category === data);
-        if (existing) return prev;
-      }
-      
-      // For specific project logs, allow duplicates if they are different projects,
-      // but if it's the SAME project, focus existing
-      if (type === 'log') {
-        const existing = prev.find(w => w.project?.id === data.id);
-        if (existing) return prev;
+      // Check if already open
+      const existing = type === 'finder' 
+        ? prev.find(w => w.category === data)
+        : prev.find(w => w.project?.id === data.id);
+
+      if (existing) {
+        // Just focus the existing window
+        const nextZ = topZIndex + 1;
+        setTopZIndex(nextZ);
+        return prev.map(w => w.id === existing.id ? { ...w, zIndex: nextZ } : w);
       }
 
-      const id = Math.random().toString(36).substr(2, 9);
-      const newZ = topZIndex + 1;
-      setTopZIndex(newZ);
-      
+      // Open new window
+      const id = Math.random().toString(36).substring(2, 11);
+      const nextZ = topZIndex + 1;
+      setTopZIndex(nextZ);
+
       const newWindow: WindowInstance = {
         id,
         type,
-        zIndex: newZ,
+        zIndex: nextZ,
         category: type === 'finder' ? data : undefined,
         project: type === 'log' ? data : undefined,
       };
@@ -66,11 +66,17 @@ export default function WorkArchive() {
   };
 
   const focusWindow = (id: string) => {
-    const newZ = topZIndex + 1;
-    setTopZIndex(newZ);
-    setOpenWindows(prev => prev.map(w =>
-      w.id === id ? { ...w, zIndex: newZ } : w
-    ));
+    setOpenWindows(prev => {
+      const window = prev.find(w => w.id === id);
+      if (!window) return prev;
+      
+      const nextZ = topZIndex + 1;
+      setTopZIndex(nextZ);
+      
+      return prev.map(w =>
+        w.id === id ? { ...w, zIndex: nextZ } : w
+      );
+    });
   };
 
   const updateWindowCategory = (id: string, newCategory: "sde" | "ml" | "media" | "cert") => {

@@ -77,7 +77,7 @@ export const TextEditWindow = ({
         transition={{ duration: 0.2, ease: "easeOut" }}
         style={{ zIndex }}
         className={cn(
-          "absolute bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10 transition-all duration-500",
+          "absolute bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10",
           "w-[96%] left-[2%] h-[90%] top-[5%] md:w-[88%] md:left-[6%] md:h-[78%] md:top-[11%] md:max-w-4xl"
         )}
       >
