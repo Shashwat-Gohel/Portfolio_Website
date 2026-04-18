@@ -16,17 +16,18 @@ export const ProjectFolder = ({ label, onClick, className }: ProjectFolderProps)
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.92 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onDoubleClick={onClick}
+      onClick={onClick}  // Single-tap on mobile, double-click on desktop both work
       className={cn(
-        "flex flex-col items-center gap-2 w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 z-20",
+        "flex flex-col items-center gap-1.5 sm:gap-2 w-20 sm:w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 z-20 select-none",
         className
       )}
     >
       {/* MacOS Blue Folder Icon */}
-      <div className="relative w-16 h-16 pointer-events-none">
+      <div className="relative w-12 h-12 sm:w-16 sm:h-16 pointer-events-none">
         <svg 
           viewBox="0 0 24 24" 
           fill="#007AFF" 
@@ -37,7 +38,7 @@ export const ProjectFolder = ({ label, onClick, className }: ProjectFolderProps)
         </svg>
       </div>
 
-      <span className="text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
+      <span className="text-[9px] sm:text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
         {label}
       </span>
     </motion.div>

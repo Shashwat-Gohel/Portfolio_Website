@@ -44,9 +44,9 @@ const Typewriter = () => {
 
 const CharacterReveal = ({ text }: { text: string }) => {
   return (
-    <div className="flex justify-center whitespace-nowrap py-8 overflow-visible">
+    <div className="flex justify-center py-4 sm:py-8 overflow-visible w-full">
       {text.split("").map((char, i) => (
-        <span key={i} className="overflow-hidden inline-flex px-[0.1em] py-4">
+        <span key={i} className="overflow-hidden inline-flex px-[0.05em] sm:px-[0.1em] py-2 sm:py-4">
           <motion.span
             initial={{ y: "110%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -87,7 +87,7 @@ export const Hero = () => {
   }, [mouseX, mouseY]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
 
       {/* Dynamic Light Follower */}
       <motion.div
@@ -105,12 +105,10 @@ export const Hero = () => {
         <div className="space-y-8 overflow-visible w-full">
 
 
-          <div className="relative px-4 w-full">
-            <h1 className="text-[11vw] md:text-[8vw] lg:text-[7.5vw] font-extralight tracking-[-0.085em] text-foreground leading-tight text-center whitespace-nowrap">
+          <div className="relative px-2 sm:px-4 w-full">
+            <h1 className="text-[13vw] sm:text-[11vw] md:text-[8vw] lg:text-[7.5vw] font-extralight tracking-[-0.085em] text-foreground leading-none text-center">
               <CharacterReveal text="Shashwat Gohel" />
             </h1>
-
-
           </div>
 
 
@@ -119,12 +117,12 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="flex flex-col items-center gap-4 text-xl md:text-2xl font-light text-foreground/50"
+            className="flex flex-col items-center gap-4 text-lg md:text-2xl font-light text-foreground/50"
           >
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-foreground/10" />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <span className="w-8 sm:w-12 h-[1px] bg-foreground/10" />
               <Typewriter />
-              <span className="w-12 h-[1px] bg-foreground/10" />
+              <span className="w-8 sm:w-12 h-[1px] bg-foreground/10" />
             </div>
           </motion.div>
         </div>
@@ -141,8 +139,8 @@ export const Hero = () => {
             bridge the gap between complex algorithms and engaging digital experiences.
           </p>
 
-          <div className="flex justify-center pt-8">
-            <Link href="/work" className="text-[11px] font-mono uppercase tracking-[0.5em] text-foreground/50 hover:text-foreground transition-all duration-500 py-4 px-10 border border-foreground/10 hover:border-foreground/30 rounded-full group relative overflow-hidden bg-white/[0.02]">
+          <div className="flex justify-center pt-6 sm:pt-8">
+            <Link href="/work" className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.3em] sm:tracking-[0.5em] text-foreground/50 hover:text-foreground transition-all duration-500 py-3 sm:py-4 px-8 sm:px-10 border border-foreground/10 hover:border-foreground/30 rounded-full group relative overflow-hidden bg-white/[0.02]">
               <span className="relative z-10 group-hover:scale-110 block transition-transform duration-500">Let&apos;s Explore</span>
               <div className="absolute inset-0 bg-accent/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </Link>

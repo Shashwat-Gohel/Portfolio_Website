@@ -81,8 +81,8 @@ export const ProjectWindow = ({
               </div>
             </div>
 
-            {/* Bottom Row: Toolbar Controls & Search */}
-            <div className="flex items-center justify-between px-4 mt-2">
+            {/* Bottom Row: Toolbar Controls & Search - Hidden on small screens */}
+            <div className="hidden sm:flex items-center justify-between px-4 mt-2">
               <div className="flex items-center gap-6">
                 <div 
                   className="flex flex-col items-center gap-0.5 group cursor-pointer"
@@ -244,8 +244,8 @@ export const ProjectWindow = ({
             {/* Main Content (Right Pane - List View) */}
             <div className="flex-1 flex flex-col overflow-hidden bg-[#1e1e1e]/50 rounded-br-[2.2rem]">
               
-              {/* List Header */}
-              <div className="flex items-center px-4 py-1.5 border-b border-white/10 text-[10px] text-white/40 font-medium tracking-tight">
+              {/* List Header - Hidden on mobile */}
+              <div className="hidden sm:flex items-center px-4 py-1.5 border-b border-white/10 text-[10px] text-white/40 font-medium tracking-tight">
                 <div className="w-1/2 flex items-center gap-1 cursor-pointer hover:text-white/60">Name <ChevronRight size={10} className="rotate-90"/></div>
                 <div className="w-1/4">Date Modified</div>
                 <div className="w-[12%]">Size</div>
@@ -266,7 +266,7 @@ export const ProjectWindow = ({
                       index % 2 === 0 ? "bg-transparent" : "bg-white/[0.02]"
                     )}
                   >
-                    <div className="w-1/2 flex items-center gap-2 pr-4">
+                    <div className="w-full sm:w-1/2 flex items-center gap-2 pr-4">
                       {/* Folder Icon representing project */}
                       <svg viewBox="0 0 24 24" fill="#007AFF" className="w-4 h-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.25 6.75C2.25 5.92157 2.92157 5.25 3.75 5.25H8.64645C8.84536 5.25 9.03613 5.32902 9.17678 5.46967L11.4697 7.76256C11.6103 7.90321 11.8011 7.98223 12 7.98223H20.25C21.0784 7.98223 21.75 8.65366 21.75 9.48209V17.25C21.75 18.0784 21.0784 18.75 20.25 18.75H3.75C2.92157 18.75 2.25 18.0784 2.25 17.25V6.75Z" />
@@ -274,9 +274,9 @@ export const ProjectWindow = ({
                       </svg>
                       <span className="text-[12px] font-medium text-white/90 truncate">{project.title}</span>
                     </div>
-                    <div className="w-1/4 text-[11px] text-white/60 truncate">Today at 10:15</div>
-                    <div className="w-[12%] text-[11px] text-white/60 truncate">--</div>
-                    <div className="w-[13%] text-[11px] text-white/60 truncate">Folder</div>
+                    <div className="hidden sm:block w-1/4 text-[11px] text-white/60 truncate">Today at 10:15</div>
+                    <div className="hidden sm:block w-[12%] text-[11px] text-white/60 truncate">--</div>
+                    <div className="hidden sm:block w-[13%] text-[11px] text-white/60 truncate">Folder</div>
                   </motion.div>
                 ))}
                 

@@ -252,7 +252,7 @@ STATUS: ENCRYPTED & ONLINE`,
   const selectedMail = [...inboxItems, ...sentMessages].find(m => m.id === selectedMailId);
 
   return (
-    <main className="h-[100dvh] w-full bg-black flex flex-col items-center justify-center pt-12 p-6 overflow-hidden relative z-[50]">
+    <main className="h-[100dvh] w-full bg-black flex flex-col items-center justify-center pt-16 sm:pt-12 p-3 sm:p-6 overflow-hidden relative z-[50]">
       <div className="absolute inset-0 bg-black -z-10" />
 
       <MacBookShell>
@@ -264,7 +264,7 @@ STATUS: ENCRYPTED & ONLINE`,
             className="w-full h-full bg-[#1a1a1a]/95 backdrop-blur-3xl flex flex-col overflow-hidden font-sans rounded-[2.2rem]"
           >
             {/* Unified macOS Toolbar */}
-            <div className="flex items-center justify-between px-4 py-3 bg-[#161616] border-b border-white/5 select-none z-20 rounded-t-[2.2rem]">
+            <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-[#161616] border-b border-white/5 select-none z-20 rounded-t-[2.2rem]">
               <div className="flex items-center gap-8">
                 <div className="flex gap-2 min-w-[60px]">
                   <div 
@@ -301,13 +301,13 @@ STATUS: ENCRYPTED & ONLINE`,
                 </div>
               </div>
 
-              <div className="absolute inset-x-0 flex items-center justify-center pointer-events-none gap-2">
+              <div className="absolute inset-x-0 hidden sm:flex items-center justify-center pointer-events-none gap-2">
                  <Terminal size={12} className="text-[#38bdf8]/40" />
                  <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest font-bold">Mail.app -- Secure_Node</span>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5">
+              <div className="flex items-center gap-2">
+                <div className="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5">
                    <Search size={14} className="text-white/20" />
                    <input 
                      type="text" 

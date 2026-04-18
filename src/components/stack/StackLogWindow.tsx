@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import { X, Terminal, FileCode2, ChevronRight, Cpu } from "lucide-react";
 import { SkillCategory, Skill } from "@/lib/stackData";
+import { cn } from "@/lib/utils";
 
 interface StackLogWindowProps {
   category: SkillCategory | null;
@@ -59,7 +60,10 @@ export const StackLogWindow = ({
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         style={{ zIndex }}
-        className="absolute w-[88%] max-w-4xl h-[78%] left-[6%] top-[11%] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/5"
+        className={cn(
+          "absolute bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/5 transition-all duration-500",
+          "w-[96%] left-[2%] h-[88%] top-[6%] md:w-[88%] md:max-w-4xl md:h-[78%] md:left-[6%] md:top-[11%]"
+        )}
       >
         {/* macOS Terminal Header */}
         <div 
@@ -114,7 +118,7 @@ export const StackLogWindow = ({
                   transition={{ duration: 0.3 }}
                   className="flex items-center gap-3 group"
                 >
-                  <div className="flex items-center gap-3 min-w-[180px]">
+                  <div className="flex items-center gap-3 min-w-[120px] sm:min-w-[180px]">
                     <span className="text-[#38bdf8] font-semibold tracking-tight">{skill.name.toLowerCase().replace(/ /g, "_")}</span>
                   </div>
                   <div className="h-[1px] flex-1 bg-white/5" />

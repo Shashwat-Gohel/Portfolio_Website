@@ -74,7 +74,7 @@ export default function WorkArchive() {
   };
 
   return (
-    <main className="h-[100dvh] w-full bg-black flex flex-col items-center justify-center pt-12 p-6 overflow-hidden relative z-[50]">
+    <main className="h-[100dvh] w-full bg-black flex flex-col items-center justify-center pt-16 sm:pt-12 p-3 sm:p-6 overflow-hidden relative z-[50]">
       <div className="absolute inset-0 bg-black -z-10" />
 
       <MacBookShell>
