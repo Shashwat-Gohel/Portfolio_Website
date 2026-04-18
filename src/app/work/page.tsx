@@ -33,7 +33,7 @@ export default function WorkArchive() {
   const openWindow = (type: 'finder' | 'log', data: any) => {
     const newZ = topZIndex + 1;
     setTopZIndex(newZ);
-    
+
     // For categories, check if already open
     if (type === 'finder') {
       const existing = openWindows.find(w => w.category === data);
@@ -51,7 +51,7 @@ export default function WorkArchive() {
       category: type === 'finder' ? data : undefined,
       project: type === 'log' ? data : undefined,
     };
-    
+
     setOpenWindows(prev => [...prev, newWindow]);
   };
 
@@ -62,15 +62,15 @@ export default function WorkArchive() {
   const focusWindow = (id: string) => {
     const newZ = topZIndex + 1;
     setTopZIndex(newZ);
-    setOpenWindows(prev => prev.map(w => 
+    setOpenWindows(prev => prev.map(w =>
       w.id === id ? { ...w, zIndex: newZ } : w
     ));
   };
 
   const updateWindowCategory = (id: string, newCategory: "sde" | "ml" | "media" | "cert") => {
-     setOpenWindows(prev => prev.map(w => 
-        w.id === id ? { ...w, category: newCategory } : w
-     ));
+    setOpenWindows(prev => prev.map(w =>
+      w.id === id ? { ...w, category: newCategory } : w
+    ));
   };
 
   return (
@@ -79,35 +79,35 @@ export default function WorkArchive() {
 
       <MacBookShell>
         <div ref={constraintsRef} className="relative h-full w-full p-4 flex flex-col pt-8 overflow-hidden">
-          
+
           {/* Desktop Folder Grid - Refined for better alignment */}
           <div className="flex flex-nowrap justify-start items-start gap-8 sm:gap-10 p-8 overflow-x-auto custom-scrollbar-hidden min-h-[180px] w-full max-w-full">
-            <ProjectFolder 
-              label="SDE Projects" 
-              onClick={() => openWindow('finder', 'sde')} 
+            <ProjectFolder
+              label="SDE Projects"
+              onClick={() => openWindow('finder', 'sde')}
             />
-            <ProjectFolder 
-              label="ML Project" 
-              onClick={() => openWindow('finder', 'ml')} 
+            <ProjectFolder
+              label="ML Project"
+              onClick={() => openWindow('finder', 'ml')}
             />
-            <ProjectFolder 
-              label="Publications" 
-              onClick={() => openWindow('finder', 'media')} 
+            <ProjectFolder
+              label="Publications"
+              onClick={() => openWindow('finder', 'media')}
             />
-            <ProjectFolder 
-              label="Certifications" 
-              onClick={() => openWindow('finder', 'cert')} 
+            <ProjectFolder
+              label="Certifications"
+              onClick={() => openWindow('finder', 'cert')}
             />
 
             {/* Resume File */}
             <Link href="/ShashwatGohel_Resume-2.pdf" target="_blank" className="flex flex-col items-center gap-2 w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
               <div className="relative w-16 h-16 pointer-events-none drop-shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/90">
-                  <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white"/>
-                  <path d="M14 2V8H20" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <rect x="8" y="13" width="8" height="2" rx="1" fill="#1A1A1A"/>
-                  <rect x="8" y="17" width="6" height="2" rx="1" fill="#1A1A1A"/>
-                  <path d="M8 9H10" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white" />
+                  <path d="M14 2V8H20" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <rect x="8" y="13" width="8" height="2" rx="1" fill="#1A1A1A" />
+                  <rect x="8" y="17" width="6" height="2" rx="1" fill="#1A1A1A" />
+                  <path d="M8 9H10" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
               <span className="text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
@@ -119,11 +119,11 @@ export default function WorkArchive() {
             <Link href="/Grade_sheet.pdf" target="_blank" className="flex flex-col items-center gap-2 w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
               <div className="relative w-16 h-16 pointer-events-none drop-shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/90">
-                  <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white"/>
-                  <path d="M14 2V8H20" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <rect x="8" y="12" width="8" height="2" rx="0.5" fill="#007AFF" fillOpacity="0.8"/>
-                  <rect x="8" y="15" width="8" height="2" rx="0.5" fill="#007AFF" fillOpacity="0.4"/>
-                  <rect x="8" y="18" width="5" height="2" rx="0.5" fill="#007AFF" fillOpacity="0.2"/>
+                  <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white" />
+                  <path d="M14 2V8H20" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <rect x="8" y="12" width="8" height="2" rx="0.5" fill="#007AFF" fillOpacity="0.8" />
+                  <rect x="8" y="15" width="8" height="2" rx="0.5" fill="#007AFF" fillOpacity="0.4" />
+                  <rect x="8" y="18" width="5" height="2" rx="0.5" fill="#007AFF" fillOpacity="0.2" />
                 </svg>
               </div>
               <span className="text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
@@ -138,7 +138,7 @@ export default function WorkArchive() {
           {openWindows.map((win) => {
             if (win.type === 'finder' && win.category) {
               return (
-                <ProjectWindow 
+                <ProjectWindow
                   key={win.id}
                   isOpen={true}
                   onClose={() => closeWindow(win.id)}
@@ -149,26 +149,26 @@ export default function WorkArchive() {
                   onProjectSelect={(project) => openWindow('log', project)}
                   onCategoryChange={(cat) => updateWindowCategory(win.id, cat)}
                   currentCategory={win.category}
-                  // dragConstraints={constraintsRef}
+                // dragConstraints={constraintsRef}
                 />
               );
             }
             if (win.type === 'log' && win.project) {
               return (
-                <TextEditWindow 
+                <TextEditWindow
                   key={win.id}
                   project={win.project}
                   onClose={() => closeWindow(win.id)}
                   onFocus={() => focusWindow(win.id)}
                   zIndex={win.zIndex}
-                  // dragConstraints={constraintsRef}
+                // dragConstraints={constraintsRef}
                 />
               );
             }
             return null;
           })}
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
