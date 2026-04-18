@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import { X, Terminal, Briefcase, Calendar, CheckCircle2, History, Database, Cpu } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface ExperienceRole {
   title: string;
@@ -48,7 +49,10 @@ export const ExperienceWindow = ({
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
         style={{ zIndex }}
-        className="absolute w-[92%] max-w-2xl h-[70%] left-[4%] top-[15%] sm:left-[15%] sm:top-[15%] bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden ring-1 ring-white/10"
+        className={cn(
+          "absolute bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden ring-1 ring-white/10 transition-all duration-500",
+          "w-[96%] left-[2%] h-[90%] top-[5%] sm:w-[92%] sm:max-w-2xl sm:h-[70%] sm:left-[15%] sm:top-[15%]"
+        )}
       >
         {/* Header */}
         <div 

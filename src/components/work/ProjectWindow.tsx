@@ -48,7 +48,10 @@ export const ProjectWindow = ({
           exit={{ scale: 0.95, opacity: 0, y: 10 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{ zIndex }}
-          className="absolute w-[88%] max-w-4xl h-[78%] left-[6%] top-[11%] bg-[#1a1a1a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10"
+          className={cn(
+            "absolute bg-[#1a1a1a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10 transition-all duration-500",
+            "w-[96%] left-[2%] h-[90%] top-[5%] md:w-[88%] md:left-[6%] md:h-[78%] md:top-[11%] md:max-w-4xl"
+          )}
         >
           {/* macOS Finder Toolbar */}
           <div 
@@ -133,8 +136,11 @@ export const ProjectWindow = ({
 
           {/* Window Content: Sidebar + List View */}
           <div className="flex flex-1 overflow-hidden">
-            {/* Sidebar (Left Pane) */}
-            <div className="w-56 bg-black/40 border-r border-white/5 flex flex-col py-3 overflow-y-auto custom-scrollbar flex-shrink-0 rounded-bl-[2.2rem]">
+            {/* Sidebar (Left Pane) - Hidden on mobile */}
+            <div className={cn(
+              "w-56 bg-black/40 border-r border-white/5 flex flex-col py-3 overflow-y-auto custom-scrollbar flex-shrink-0 rounded-bl-[2.2rem] transition-all",
+              "hidden md:flex"
+            )}>
               
               {/* Recents / Shared */}
               <div className="px-3 space-y-1 mb-4">

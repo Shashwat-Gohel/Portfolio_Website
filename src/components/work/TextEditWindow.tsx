@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import { X, FileCode2, Terminal, Info, Link2, Download, TerminalSquare, CheckCircle2, AlertCircle, Cpu, Copy, Check } from "lucide-react";
 import { Project } from "@/lib/projectData";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 interface TextEditWindowProps {
@@ -51,7 +52,10 @@ export const TextEditWindow = ({
         exit={{ scale: 0.98, opacity: 0 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
         style={{ zIndex }}
-        className="absolute w-[88%] max-w-4xl h-[78%] left-[6%] top-[11%] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10"
+        className={cn(
+          "absolute bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10 transition-all duration-500",
+          "w-[96%] left-[2%] h-[90%] top-[5%] md:w-[88%] md:left-[6%] md:h-[78%] md:top-[11%] md:max-w-4xl"
+        )}
       >
         {/* macOS Log Header */}
         <div 

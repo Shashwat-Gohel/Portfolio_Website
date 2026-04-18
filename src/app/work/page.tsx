@@ -81,7 +81,7 @@ export default function WorkArchive() {
         <div ref={constraintsRef} className="relative h-full w-full p-4 flex flex-col pt-8 overflow-hidden">
 
           {/* Desktop Folder Grid - Refined for better alignment */}
-          <div className="flex flex-nowrap justify-start items-start gap-8 sm:gap-10 p-8 overflow-x-auto custom-scrollbar-hidden min-h-[180px] w-full max-w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-10 p-4 sm:p-8 overflow-y-auto custom-scrollbar-hidden min-h-[180px] w-full max-w-full place-items-center">
             <ProjectFolder
               label="SDE Projects"
               onClick={() => openWindow('finder', 'sde')}

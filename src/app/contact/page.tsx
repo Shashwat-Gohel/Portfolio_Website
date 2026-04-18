@@ -22,6 +22,7 @@ import {
   Loader2,
   CheckCircle2
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // Local SVG icons for high-end circular social logos
 const GitHubIcon = ({ size = 18 }: { size?: number }) => (
@@ -266,7 +267,16 @@ STATUS: ENCRYPTED & ONLINE`,
             <div className="flex items-center justify-between px-4 py-3 bg-[#161616] border-b border-white/5 select-none z-20 rounded-t-[2.2rem]">
               <div className="flex items-center gap-8">
                 <div className="flex gap-2 min-w-[60px]">
-                  <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                  <div 
+                    onClick={() => {
+                      if (selectedMailId) setSelectedMailId("");
+                      else if (isComposing) setIsComposing(false);
+                      else window.history.back();
+                    }}
+                    className="w-3 h-3 rounded-full bg-[#FF5F56] cursor-pointer hover:bg-[#FF5F56]/80 flex items-center justify-center group"
+                  >
+                     {(selectedMailId || isComposing) && <ChevronRight size={8} className="text-black/60 rotate-180" />}
+                  </div>
                   <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
                   <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
                 </div>
@@ -317,10 +327,13 @@ STATUS: ENCRYPTED & ONLINE`,
             </div>
 
             {/* Application Panes */}
-            <div className="flex-1 flex overflow-hidden">
+            <div className="flex-1 flex overflow-hidden relative">
               
-              {/* Sidebar (Pane 1) */}
-              <div className="w-56 bg-black/40 backdrop-blur-3xl border-r border-white/5 flex flex-col p-4 gap-8 rounded-bl-[2.2rem]">
+              {/* Sidebar (Pane 1) - Hidden on mobile if viewing mail */}
+              <div className={cn(
+                "w-56 bg-black/40 backdrop-blur-3xl border-r border-white/5 flex flex-col p-4 gap-8 rounded-bl-[2.2rem] transition-all duration-300",
+                (selectedMailId || isComposing) ? "hidden md:flex" : "flex"
+              )}>
                 <div className="space-y-1.5">
                   <h3 className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] ml-2 mb-3">Mailboxes</h3>
                   <div 
@@ -384,8 +397,11 @@ STATUS: ENCRYPTED & ONLINE`,
                 </div>
               </div>
 
-              {/* Message Preview List (Pane 2) */}
-              <div className="w-80 bg-black/20 border-r border-white/5 overflow-y-auto custom-scrollbar-hidden">
+              {/* Message Preview List (Pane 2) - Hidden on mobile if viewing mail */}
+              <div className={cn(
+                "w-full md:w-80 bg-black/20 border-r border-white/5 overflow-y-auto custom-scrollbar-hidden transition-all duration-300",
+                (selectedMailId || isComposing) ? "hidden lg:flex" : "flex flex-1 md:flex-none"
+              )}>
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-4">
                      <h3 className="text-sm font-bold text-white/90 capitalize">{activeFolder}</h3>
@@ -432,8 +448,11 @@ STATUS: ENCRYPTED & ONLINE`,
                 </div>
               </div>
 
-              {/* Detailed View / Compose (Pane 3) */}
-              <div className="flex-1 bg-[#121212]/50 flex flex-col rounded-br-[2.2rem]">
+              {/* Detailed View / Compose (Pane 3) - Full screen on mobile if active */}
+              <div className={cn(
+                "flex-1 bg-[#121212]/50 flex flex-col rounded-br-[2.2rem] transition-all duration-300",
+                (!selectedMailId && !isComposing) ? "hidden md:flex" : "flex"
+              )}>
                 {isComposing ? (
                   <>
                     <div className="px-8 py-6 space-y-5 border-b border-white/5 bg-white/[0.02]">

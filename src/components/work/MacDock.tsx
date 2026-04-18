@@ -63,7 +63,7 @@ export const MacDock = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-3 px-4 py-3 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50">
+    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-1.5 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50">
       {dockItems.map((item, index) => {
         return (
           <div key={item.name} className="relative group flex flex-col items-center">
@@ -105,7 +105,16 @@ export const MacDock = () => {
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/20 opacity-40" />
                   <div className="absolute top-0 inset-x-0 h-[40%] bg-white/20 rounded-t-xl" />
                   
-                  {item.icon && <item.icon size={22} color={item.color} className="relative z-10 drop-shadow-md" />}
+                  {item.icon && (
+                    <div className="sm:hidden">
+                      <item.icon size={18} color={item.color} className="relative z-10 drop-shadow-md" />
+                    </div>
+                  )}
+                  {item.icon && (
+                    <div className="hidden sm:block">
+                      <item.icon size={22} color={item.color} className="relative z-10 drop-shadow-md" />
+                    </div>
+                  )}
                   
                   {/* Inner Border Shadow */}
                   <div className="absolute inset-0 rounded-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]" />

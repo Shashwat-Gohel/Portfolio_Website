@@ -135,7 +135,7 @@ export const Hero = () => {
           transition={{ duration: 1.2, delay: 1.5 }}
           className="max-w-xl mx-auto space-y-8"
         >
-          <p className="text-base md:text-lg text-foreground/40 font-light leading-relaxed lowercase tracking-tight px-4 max-w-lg mx-auto">
+          <p className="text-sm md:text-lg text-foreground/40 font-light leading-relaxed lowercase tracking-tight px-6 max-w-lg mx-auto">
             I am a full-stack developer and freelancer who builds high-performance web applications. 
             I also specialize in AI and Machine Learning, creating intelligent solutions that 
             bridge the gap between complex algorithms and engaging digital experiences.
