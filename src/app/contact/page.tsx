@@ -105,12 +105,28 @@ export default function Contact() {
   const inboxItems: MailItem[] = [
     {
       id: "official-welcome",
-      from: "Official Mailbox",
-      subject: "Direct Connectivity Established",
-      time: "System",
-      preview: "Welcome to the official communication node. All messages dispatched...",
+      from: "System Node",
+      subject: "Communication Manual & Logic",
+      time: "Initial",
+      preview: "Essential guide to the high-fidelity professional mail suite...",
       isRead: false,
-      body: "Welcome to the official communication node.\n\nAll messages dispatched through this platform are routed directly to shashwat.@ahduni.edu.in.\n\nThis interface serves as a secure, professional bridge for project inquiries, collaborations, and technical discussions.\n\nStatus: Online & Encrypted",
+      body: `SYSTEM COMMUNICATION NODE: OPERATIONAL GUIDE
+
+This portfolio uses a professional-grade backend for all correspondence. Please review the operating parameters below:
+
+1. DIRECT DISPATCH
+Every message sent here is routed directly to my professional mail account using a secure SMTP relay. There is no simulation; your inquiry leads to a real-world notification.
+
+2. ATTACHMENT PARAMETERS
+Smaller files and technical sheets can be attached directly via the paperclip icon. For payloads exceeding 10MB, please use the Cloud Storage tab in the sidebar and include the link in your message.
+
+3. PRIVACY & LOCAL SILOS
+Your 'Sent' folder is private to this browser session. To ensure visitor privacy, no communication data is stored on external servers except for the direct email received by me.
+
+4. CONTROL SUITE
+Use the built-in search to index your local history. You can Delete or Archive individual messages to maintain a clean workspace.
+
+STATUS: ENCRYPTED & ONLINE`,
       type: "received"
     }
   ];
@@ -189,7 +205,7 @@ export default function Contact() {
   };
 
   const handleDeleteSelected = () => {
-    if (!selectedMailId) return;
+    if (!selectedMailId || selectedMailId === "official-welcome") return;
     
     // If it's in sent messages
     if (sentMessages.find(m => m.id === selectedMailId)) {
@@ -202,7 +218,7 @@ export default function Contact() {
   };
 
   const handleArchiveSelected = () => {
-    if (!selectedMailId) return;
+    if (!selectedMailId || selectedMailId === "official-welcome") return;
     setArchivedMailIds(prev => [...prev, selectedMailId]);
     setSelectedMailId("");
   };
@@ -213,14 +229,16 @@ export default function Contact() {
         setSentMessages([]);
       }
     } else {
-      // For inbox, we just mark everything as deleted
-      setDeletedMailIds(prev => [...prev, ...inboxItems.map(m => m.id)]);
+      // For inbox, we mark everything except the system guide as deleted
+      setDeletedMailIds(prev => [
+        ...prev, 
+        ...inboxItems.filter(m => m.id !== "official-welcome").map(m => m.id)
+      ]);
     }
   };
 
   const currentDisplayItems = (activeFolder === "inbox" ? inboxItems : sentMessages)
-    .filter(item => !deletedMailIds.includes(item.id))
-    .filter(item => !archivedMailIds.includes(item.id))
+    .filter(item => item.id === "official-welcome" || (!deletedMailIds.includes(item.id) && !archivedMailIds.includes(item.id)))
     .filter(item => {
       if (!searchQuery) return true;
       const query = searchQuery.toLowerCase();
@@ -258,8 +276,18 @@ export default function Contact() {
                     <Plus size={16} />
                     <span className="text-[10px] font-bold uppercase tracking-tight">Compose</span>
                   </div>
-                  <Archive size={16} className="hover:text-white cursor-pointer transition-colors" onClick={handleArchiveSelected} aria-label="Archive" />
-                  <Trash2 size={16} className="hover:text-white cursor-pointer transition-colors text-red-400/60 hover:text-red-400" onClick={handleDeleteSelected} aria-label="Delete" />
+                  <Archive 
+                    size={16} 
+                    className={`transition-colors ${selectedMailId === "official-welcome" ? "opacity-10 cursor-not-allowed" : "hover:text-white cursor-pointer"}`} 
+                    onClick={handleArchiveSelected} 
+                    aria-label="Archive" 
+                  />
+                  <Trash2 
+                    size={16} 
+                    className={`transition-colors ${selectedMailId === "official-welcome" ? "opacity-10 cursor-not-allowed" : "hover:text-red-400 cursor-pointer text-red-400/60"}`} 
+                    onClick={handleDeleteSelected} 
+                    aria-label="Delete" 
+                  />
                 </div>
               </div>
 
