@@ -83,13 +83,14 @@ export const StackLogWindow = ({
           className="flex items-center justify-between px-4 py-2.5 bg-[#161616] border-b border-white/5 select-none cursor-default active:cursor-grabbing"
         >
           <div className="flex items-center gap-2 w-24 relative z-10">
-            <button 
-              type="button"
+            <div 
+              role="button"
+              tabIndex={0}
               onClick={(e) => { e.stopPropagation(); onClose(); }} 
               className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group cursor-pointer p-0 border-none outline-none overflow-hidden"
             >
               <X size={8} className="text-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </button>
+            </div>
             <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FFBD2E]" />
             <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#27C93F]" />
           </div>

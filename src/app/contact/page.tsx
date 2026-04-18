@@ -277,17 +277,19 @@ STATUS: ENCRYPTED & ONLINE`,
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-2 min-w-[60px]">
                   <div 
+                    role="button"
+                    tabIndex={0}
                     onClick={() => {
                       if (selectedMailId) setSelectedMailId("");
                       else if (isComposing) setIsComposing(false);
                       else window.history.back();
                     }}
-                    className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FF5F56] cursor-pointer hover:bg-[#FF5F56]/80 flex items-center justify-center group p-0"
+                    className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FF5F56] cursor-pointer hover:bg-[#FF5F56]/80 flex items-center justify-center group p-0 border-none outline-none overflow-hidden"
                   >
                      {(selectedMailId || isComposing) && <ChevronRight size={8} className="text-black/60 rotate-180" />}
                   </div>
-                  <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FFBD2E]" />
-                  <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#27C93F]" />
+                  <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FFBD2E]" />
+                  <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#27C93F]" />
                 </div>
                 
                 <div className="flex items-center gap-6 text-white/40">
