@@ -26,13 +26,13 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "caresync",
-    title: "CareSync",
+    id: "medicare",
+    title: "MediCare",
     description: "High-fidelity, production-ready Hospital Management System prioritizing patient autonomy and enterprise-grade security.",
     tech: ["React", "Node.js", "Redis", "MongoDB", "Stripe", "Flask"],
     category: "sde",
     details: {
-      introduction: "CareSync is a state-of-the-art Hospital Management System built on a microservices-aligned architecture, bridging patient health ownership with professional medical management.",
+      introduction: "MediCare (formerly CareSync) is a state-of-the-art Hospital Management System built on a microservices-aligned architecture, bridging patient health ownership with professional medical management.",
       features: [
         "CareNexus AI Assistant: Health insights powered by Grok AI",
         "Clinical Privacy Shield: Explicit patient-controlled access protocol",
@@ -47,13 +47,13 @@ export const PROJECTS: Project[] = [
         "Integrated seamless Stripe PCI-compliant billing for triaged care"
       ],
       cloneGuide: [
-        { step: "Clone Ecosystem", command: "git clone https://github.com/shashwatgohel/caresync.git" },
+        { step: "Clone Ecosystem", command: "git clone https://github.com/ShashwatGohel/MediCare-Software_Engineering_Project.git" },
         { step: "Rapid Orchestration", command: "docker-compose up --build" },
         { step: "Backend Setup", command: "cd backend && npm install" },
         { step: "Frontend Launch", command: "cd frontend && npm run dev" },
         { step: "Start ML Service", command: "cd ml-service && python app.py" }
       ],
-      githubLink: "https://github.com/shashwatgohel/caresync"
+      githubLink: "https://github.com/ShashwatGohel/MediCare-Software_Engineering_Project"
     }
   },
   {
@@ -78,14 +78,14 @@ export const PROJECTS: Project[] = [
         "Winner of Regional Blockchain Hackathon 2024"
       ],
       cloneGuide: [
-        { step: "Clone Repo", command: "git clone https://github.com/shashwatgohel/kyc-chain.git" },
+        { step: "Clone Repo", command: "git clone https://github.com/ShashwatGohel/Decentralized_KYC_Blockchain.git" },
         { step: "Install Dependencies", command: "npm install" },
         { step: "Compile Circuits (Circom)", command: "sh scripts/compile-circuits.sh" },
         { step: "Deploy Smart Contracts", command: "npx hardhat run scripts/deploy.js --network sepolia" },
         { step: "Start DApp", command: "npm run dev" }
       ],
       liveDemoLink: "https://kyc-chain.vercel.app",
-      githubLink: "https://github.com/shashwatgohel/kyc-chain"
+      githubLink: "https://github.com/ShashwatGohel/Decentralized_KYC_Blockchain"
     }
   },
   {
@@ -120,45 +120,15 @@ export const PROJECTS: Project[] = [
       githubLink: "https://github.com/ShashwatGohel/MediStock"
     }
   },
-  {
-    id: "kyc-radix",
-    title: "ZK-KYC SSI (Radix)",
-    description: "Production-grade SSI platform on Radix Network with selective disclosure via ZK-Proofs.",
-    tech: ["Scrypto", "Rust", "ZK-Proofs", "Circom", "SSI"],
-    category: "sde",
-    details: {
-      introduction: "A privacy-preserving Identity System built on Radix Network (Scrypto) utilizing Zero-Knowledge Proofs for selective disclosure. It allows users to prove credentials (age, income) without revealing private PII.",
-      features: [
-        "Selective Disclosure for Age, Income, and Credit Tiers",
-        "M-of-N Multi-Sig Admin Governance for Credential Issuers",
-        "On-chain Identity Registry with real-time Revocation",
-        "Automated CI/CD for contract auditing and circuit compilation"
-      ],
-      techStackDetailed: ["Scrypto (Radix Engine)", "Rust", "Circom 2.1", "SnarkJS", "Node.js 20", "GitHub Actions"],
-      requirements: ["Rust 1.70+", "Scrypto CLI 1.2.x", "Node.js 20+", "Circom 2.1.6+"],
-      achievements: [
-        "Architected a scalable SSI framework where no raw PII touches the ledger",
-        "Developed custom ZK circuits for credit score bracket verification",
-        "Implemented secure on-chain consent management for institution access"
-      ],
-      cloneGuide: [
-        { step: "Install Toolchain", command: "rustup target add wasm32-unknown-unknown && cargo install radix-clis" },
-        { step: "Build Contracts", command: "cd kyc_identity && cargo build" },
-        { step: "Compile ZK Circuits", command: "cd zk_proofs && bash scripts/compile-circuits.sh" },
-        { step: "Verify Proofs", command: "node scripts/verify_proof.js age_verify" },
-        { step: "Stokenet Deploy", command: "resim publish ." }
-      ],
-      githubLink: "https://github.com/ShashwatGohel/dec-kyc-radix"
-    }
-  },
+
   {
     id: "zeta-layers",
-    title: "Zeta Layers",
+    title: "Zeta Layers Website",
     description: "High-performance Next.js infrastructure optimized for scalability and automated asset deliverability.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     category: "sde",
     details: {
-      introduction: "Zeta Layers is a high-performance freelance web infrastructure framework designed for enhanced asset delivery and streamlined developer workflows through the zetalayers.com portal.",
+      introduction: "Zeta Layers Website is a high-performance freelance web infrastructure framework designed for enhanced asset delivery and streamlined developer workflows.",
       features: [
         "Next.js 15 App Router & Server Components Architecture",
         "Automated Geist Font Optimization & Asset Delivery",
@@ -173,46 +143,43 @@ export const PROJECTS: Project[] = [
         "Engineered zero-config asset delivery logic for modern web apps"
       ],
       cloneGuide: [
-        { step: "Clone Repository", command: "git clone https://github.com/shashwatgohel/zeta-layers.git" },
+        { step: "Clone Repository", command: "git clone https://github.com/ShashwatGohel/Zeta_Layers_Website.git" },
         { step: "Initialize Environment", command: "npm install" },
         { step: "Launch Development", command: "npm run dev" },
         { step: "Deploy Snapshot", command: "npm run build" }
       ],
       liveDemoLink: "https://zetalayers.com",
-      githubLink: "https://github.com/shashwatgohel/zeta-layers"
+      githubLink: "https://github.com/ShashwatGohel/Zeta_Layers_Website"
     }
   },
   {
-    id: "brain-tumor-ai",
-    title: "Brain Tumor Classification",
-    description: "Deep learning model for MRI scan analysis and classification.",
-    tech: ["CNN", "PyTorch", "OpenCV", "Python"],
+    id: "ml-data-dominators",
+    title: "Data Dominators - ML",
+    description: "Advanced deep learning project focusing on Brain Tumor Segmentation and Contours using MRI scan analysis.",
+    tech: ["Python", "CNN", "Segmentation", "OpenCV"],
     category: "ml",
     details: {
-      introduction: "A computer vision model designed to detect and classify brain tumors from MRI scans into four categories: Glioma, Meningioma, No Tumor, and Pituitary.",
+      introduction: "A specialized computer vision project for precise brain tumor segmentation and contour detection from MRI scans, enabling detailed clinical analysis.",
       features: [
-        "Advanced MobileNetV2 architecture fine-tuning",
-        "Custom image preprocessing and augmentation",
-        "Real-time inference API using Flask",
-        "Explaining predictions with Grad-CAM"
+        "Advanced segmentation architecture fine-tuning",
+        "Custom image preprocessing for contour enhancement",
+        "Real-time analysis pipeline",
+        "Automated report generation with visualization"
       ],
-      techStackDetailed: ["Python 3.9", "PyTorch", "Torchvision", "OpenCV", "Matplotlib", "Flask"],
+      techStackDetailed: ["Python 3.9", "PyTorch", "OpenCV", "Matplotlib", "NumPy", "Flask"],
       requirements: ["Python >= 3.9", "CUDA-enabled GPU (Optional)", "4GB+ System RAM"],
       results: [
-        "98.4% Training Accuracy",
-        "97.2% Validation Accuracy on Brain MRI Dataset",
-        "F1-Score: 0.96 across all tumor categories",
-        "Average Inference Time: 120ms per image"
+        "High-precision segmentation accuracy",
+        "Reliable contour detection across diverse MRI datasets",
+        "Optimized inference for rapid clinical review"
       ],
       cloneGuide: [
-        { step: "Clone Repo", command: "git clone https://github.com/shashwatgohel/brain-tumor-ai.git" },
+        { step: "Clone Repo", command: "git clone https://github.com/ShashwatGohel/ML_2026_4_Data_Dominators.git" },
         { step: "Create Virtual Env", command: "python -m venv venv && source venv/bin/activate" },
         { step: "Install ML Packs", command: "pip install -r requirements.txt" },
-        { step: "Run Inference Script", command: "python predict.py --image test.jpg" },
-        { step: "Start Dashboard", command: "python app.py" }
+        { step: "Run Analysis", command: "python predict.py --image test.jpg" }
       ],
-      liveDemoLink: "https://brain-tumor-ai.streamlit.app",
-      githubLink: "https://github.com/shashwatgohel/brain-tumor-ai"
+      githubLink: "https://github.com/ShashwatGohel/ML_2026_4_Data_Dominators"
     }
   },
   {
@@ -237,11 +204,11 @@ export const PROJECTS: Project[] = [
         "Demonstrated energy-optimized pathing with built-in recharge station logic"
       ],
       cloneGuide: [
-        { step: "Clone Repository", command: "git clone https://github.com/ShashwatGohel/Rover-Simulator.git" },
-        { step: "Locate Simulator", command: "cd Rover-Simulator" },
+        { step: "Clone Repository", command: "git clone https://github.com/ShashwatGohel/AStar-Heuristics-Battery-Constrained-Rover.git" },
+        { step: "Locate Simulator", command: "cd AStar-Heuristics-Battery-Constrained-Rover" },
         { step: "Run Algorithm", command: "python Rover_Sim_2.py" }
       ],
-      githubLink: "https://github.com/ShashwatGohel/Rover-Simulator"
+      githubLink: "https://github.com/ShashwatGohel/AStar-Heuristics-Battery-Constrained-Rover"
     }
   },
   {
@@ -266,55 +233,130 @@ export const PROJECTS: Project[] = [
         "Discovered non-linear relationship between road curvature and risk"
       ],
       cloneGuide: [
-        { step: "Clone Core", command: "git clone https://github.com/ShashwatGohel/Accident-Risk-Spark-GBT.git" },
+        { step: "Clone Core", command: "git clone https://github.com/ShashwatGohel/Road_Accident_Risk_Spark_GBT.git" },
         { step: "Environment Sync", command: "pip install -r requirements.txt" },
         { step: "Launch Notebook", command: "jupyter notebook" }
       ],
-      githubLink: "https://github.com/shashwatgohel/Accident-Risk-Spark-GBT"
+      githubLink: "https://github.com/ShashwatGohel/Road_Accident_Risk_Spark_GBT"
     }
   },
   {
-    id: "aws-cert",
-    title: "AWS Cloud Practitioner",
-    description: "Official certification for cloud architecture and infrastructure management.",
-    tech: ["Cloud", "AWS"],
+    id: "cert-ai",
+    title: "Artificial Intelligence",
+    description: "Certification for core principles and applications of Artificial Intelligence.",
+    tech: ["AI", "Machine Learning"],
     category: "cert",
     details: {
-      introduction: "AWS Certified Cloud Practitioner validation for conceptual understanding of AWS cloud platform.",
-      features: [
-        "Understanding of core AWS services (EC2, S3, RDS)",
-        "Security and compliance practices",
-        "Billing and pricing structures"
-      ],
-      techStackDetailed: ["AWS Console", "CloudFormation", "IAM", "S3", "EC2"],
-      requirements: ["AWS Free Tier Account"],
+      introduction: "Official certification covering fundamental AI concepts and practical implementations.",
+      features: ["Search Algorithms", "Neural Networks", "Expert Systems"],
+      techStackDetailed: ["Python", "TensorFlow", "Scikit-Learn"],
+      requirements: ["Successful Exam Completion"],
       cloneGuide: [
-        { step: "View Locally", command: "open /assets/certifications/aws_certified.pdf" },
-        { step: "Verify Online", command: "open https://aws.amazon.com/verification" }
+        { step: "View Certificate", command: "open /assets/certifications/Artificial Intelligence.pdf" }
       ],
-      liveDemoLink: "/assets/certifications/aws_certified.pdf"
+      liveDemoLink: "/assets/certifications/Artificial Intelligence.pdf"
     }
   },
   {
-    id: "google-cloud-cert",
-    title: "GCP Digital Leader",
-    description: "Cloud fluency and business transformation certification from Google Cloud.",
-    tech: ["Cloud", "GCP"],
+    id: "cert-ds-ml",
+    title: "Data Science and ML",
+    description: "Comprehensive certification in data analysis and machine learning methodologies.",
+    tech: ["Data Science", "ML"],
     category: "cert",
     details: {
-      introduction: "A fundamental certification proving knowledge of Google Cloud services and their business impact.",
-      features: [
-        "Cloud identity and security",
-        "Data management and analytics",
-        "GCP cost management"
-      ],
-      techStackDetailed: ["Google Cloud Console", "BigQuery", "Compute Engine", "IAM"],
-      requirements: ["GCP Free Tier"],
+      introduction: "Validated expertise in statistical modeling, data visualization, and predictive analysis.",
+      features: ["Predictive Modeling", "Feature Engineering", "Data Wrangling"],
+      techStackDetailed: ["Pandas", "Matplotlib", "Seaborn", "MLlib"],
+      requirements: ["Successful Project Completion"],
       cloneGuide: [
-        { step: "Upload Certificate", command: "Add google_cloud.pdf to public/assets/certifications/" },
-        { step: "View Document", command: "open /assets/certifications/google_cloud.pdf" }
+        { step: "View Certificate", command: "open /assets/certifications/Data Science and ML Certificate.pdf" }
       ],
-      liveDemoLink: "/assets/certifications/google_cloud.pdf"
+      liveDemoLink: "/assets/certifications/Data Science and ML Certificate.pdf"
+    }
+  },
+  {
+    id: "cert-gen-ai",
+    title: "Generative AI",
+    description: "Certification for Generative AI models and Large Language Model architectures.",
+    tech: ["Gen AI", "LLMs"],
+    category: "cert",
+    details: {
+      introduction: "Deep dive into the architectures and fine-tuning of modern generative models.",
+      features: ["Transformer Architectures", "GANs", "Diffusion Models"],
+      techStackDetailed: ["PyTorch", "HuggingFace", "LangChain"],
+      requirements: ["Successful Model Deployment"],
+      cloneGuide: [
+        { step: "View Certificate", command: "open /assets/certifications/Generative AI.pdf" }
+      ],
+      liveDemoLink: "/assets/certifications/Generative AI.pdf"
+    }
+  },
+  {
+    id: "cert-intro-ai",
+    title: "Introduction to Artificial Intelligence",
+    description: "Foundational certification in AI history, logic, and basic algorithms.",
+    tech: ["AI Fundamentals"],
+    category: "cert",
+    details: {
+      introduction: "Introduction to the broad field of AI, from symbolic logic to modern heuristics.",
+      features: ["Logic-based AI", "Heuristic Search", "Basic Probabilistic Reasoning"],
+      techStackDetailed: ["Python", "Logic Frameworks"],
+      requirements: ["Course Completion"],
+      cloneGuide: [
+        { step: "View Certificate", command: "open /assets/certifications/Introduction to Artificial Intelligence.pdf" }
+      ],
+      liveDemoLink: "/assets/certifications/Introduction to Artificial Intelligence.pdf"
+    }
+  },
+  {
+    id: "cert-intro-cv",
+    title: "Introduction to Computer Vision",
+    description: "Certification in image processing and visual perception models.",
+    tech: ["Computer Vision", "Image Processing"],
+    category: "cert",
+    details: {
+      introduction: "Foundational knowledge in detecting features, edges, and object recognition.",
+      features: ["Edge Detection", "Image Filtering", "Object Recognition"],
+      techStackDetailed: ["OpenCV", "NumPy"],
+      requirements: ["Course Completion"],
+      cloneGuide: [
+        { step: "View Certificate", command: "open /assets/certifications/Introduction to Computer Vision.pdf" }
+      ],
+      liveDemoLink: "/assets/certifications/Introduction to Computer Vision.pdf"
+    }
+  },
+  {
+    id: "cert-intro-dl",
+    title: "Introduction to Deep Learning",
+    description: "Deep Learning certification focusing on backpropagation and deep neural networks.",
+    tech: ["Deep Learning", "Neural Networks"],
+    category: "cert",
+    details: {
+      introduction: "Understanding the core mechanics of deep neural networks and optimization strategies.",
+      features: ["Backpropagation", "Gradient Descent", "Multi-layer Perceptrons"],
+      techStackDetailed: ["PyTorch", "Keras"],
+      requirements: ["Course Completion"],
+      cloneGuide: [
+        { step: "View Certificate", command: "open /assets/certifications/Introduction to Deep Learning.pdf" }
+      ],
+      liveDemoLink: "/assets/certifications/Introduction to Deep Learning.pdf"
+    }
+  },
+  {
+    id: "cert-intro-nlm",
+    title: "Introduction to NLM",
+    description: "Specialized certification in Network Layer Models and protocols.",
+    tech: ["Networking", "NLM"],
+    category: "cert",
+    details: {
+      introduction: "Exploration of network layer protocols and distributed systems communication.",
+      features: ["Network Protocols", "Layer Architecture", "Distributed Systems"],
+      techStackDetailed: ["TCP/IP", "Networking Tools"],
+      requirements: ["Course Completion"],
+      cloneGuide: [
+        { step: "View Certificate", command: "open /assets/certifications/Introduction to NLM.pdf" }
+      ],
+      liveDemoLink: "/assets/certifications/Introduction to NLM.pdf"
     }
   }
 ];
