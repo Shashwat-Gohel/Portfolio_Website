@@ -102,12 +102,12 @@ export const TextEditWindow = ({
             <button 
               type="button"
               onClick={(e) => { e.stopPropagation(); onClose(); }} 
-              className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group cursor-pointer transition-colors p-0"
+              className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group cursor-pointer transition-colors p-0 border-none outline-none overflow-hidden"
             >
               <X size={8} className="text-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
-            <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FFBD2E]" />
-            <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#27C93F]" />
+            <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FFBD2E]" />
+            <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#27C93F]" />
           </div>
           
           <div className="absolute inset-x-0 flex items-center justify-center pointer-events-none gap-2">

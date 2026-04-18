@@ -73,17 +73,17 @@ export const ProjectWindow = ({
             
             {/* Top Row: Traffic Lights & Title */}
             <div className="flex items-center px-4 mb-2 relative">
-              <div className="flex items-center gap-2 w-20 relative z-10">
-                <button 
-                  type="button"
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onClose(); }} 
-                  className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group cursor-pointer p-0"
-                >
-                  <X size={8} className="text-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </button>
-                <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FFBD2E]" />
-                <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#27C93F]" />
-              </div>
+          <div className="flex items-center gap-2 w-20 relative z-10">
+            <button 
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); onClose(); }} 
+              className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group cursor-pointer p-0 border-none outline-none overflow-hidden"
+            >
+              <X size={8} className="text-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </button>
+            <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#FFBD2E]" />
+            <div className="w-3 h-3 min-w-[12px] min-h-[12px] aspect-square flex-shrink-0 rounded-full bg-[#27C93F]" />
+          </div>
               
               <div className="absolute inset-x-0 flex items-center justify-center gap-1.5 pointer-events-none">
                  <FileText size={14} className="text-white/60" />
