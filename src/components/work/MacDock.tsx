@@ -63,7 +63,7 @@ export const MacDock = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-1.5 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50">
+    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-1 px-2 py-1.5 sm:gap-3 sm:px-4 sm:py-3 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50">
       {dockItems.map((item, index) => {
         return (
           <div key={item.name} className="relative group flex flex-col items-center">

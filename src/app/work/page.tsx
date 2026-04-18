@@ -2,10 +2,10 @@
 
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { MacBookShell } from "@/components/work/MacBookShell";
 import { ProjectFolder } from "@/components/work/ProjectFolder";
 import { ProjectWindow } from "@/components/work/ProjectWindow";
 import { TextEditWindow } from "@/components/work/TextEditWindow";
+import { ResponsiveShell } from "@/components/work/ResponsiveShell";
 import { MacDock } from "@/components/work/MacDock";
 import { PROJECTS, Project } from "@/lib/projectData";
 import Link from "next/link";
@@ -90,11 +90,11 @@ export default function WorkArchive() {
                      h-[100dvh] pt-[57px] md:pt-0 px-2 sm:px-4 md:px-6 pb-2 md:pb-6">
       <div className="absolute inset-0 bg-black -z-10" />
 
-      <MacBookShell>
-        <div ref={constraintsRef} className="relative h-full w-full p-4 flex flex-col pt-8 overflow-hidden">
+      <ResponsiveShell>
+        <div ref={constraintsRef} className="relative h-full w-full p-4 flex flex-col pt-4 overflow-hidden">
 
-          {/* Desktop Folder Grid - Refined for better alignment */}
-          <div className="flex flex-wrap justify-start items-start gap-8 p-4 sm:p-8 overflow-y-auto custom-scrollbar-hidden w-full">
+          {/* Desktop Folder Grid - Responsive alignment */}
+          <div className="flex flex-wrap md:justify-start justify-center items-start gap-4 sm:gap-8 p-4 sm:p-8 overflow-y-auto custom-scrollbar-hidden w-full h-full content-start">
             <ProjectFolder
               label="SDE Projects"
               onClick={() => openWindow('finder', 'sde')}
@@ -113,8 +113,8 @@ export default function WorkArchive() {
             />
 
             {/* Resume File */}
-            <Link href="/ShashwatGohel_Resume-2.pdf" target="_blank" className="flex flex-col items-center gap-2 w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
-              <div className="relative w-16 h-16 pointer-events-none drop-shadow-md">
+            <Link href="/ShashwatGohel_Resume-2.pdf" target="_blank" className="flex flex-col items-center gap-2 w-20 sm:w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
+              <div className="relative w-12 h-12 sm:w-16 h-16 pointer-events-none drop-shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/90">
                   <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white" />
                   <path d="M14 2V8H20" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -123,14 +123,14 @@ export default function WorkArchive() {
                   <path d="M8 9H10" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <span className="text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
+              <span className="text-[9px] sm:text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
                 Resume
               </span>
             </Link>
 
             {/* Grade Sheet File */}
-            <Link href="/Grade_sheet.pdf" target="_blank" className="flex flex-col items-center gap-2 w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
-              <div className="relative w-16 h-16 pointer-events-none drop-shadow-md">
+            <Link href="/Grade_sheet.pdf" target="_blank" className="flex flex-col items-center gap-2 w-20 sm:w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
+              <div className="relative w-12 h-12 sm:w-16 h-16 pointer-events-none drop-shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/90">
                   <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white" />
                   <path d="M14 2V8H20" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -139,7 +139,7 @@ export default function WorkArchive() {
                   <rect x="8" y="18" width="5" height="2" rx="0.5" fill="#007AFF" fillOpacity="0.2" />
                 </svg>
               </div>
-              <span className="text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
+              <span className="text-[9px] sm:text-[10px] font-sans text-white/90 text-center tracking-tight leading-tight px-1 rounded bg-black/40">
                 Grade Sheet
               </span>
             </Link>
@@ -190,7 +190,7 @@ export default function WorkArchive() {
             Double-click folders to scan directories
           </motion.p>
         </div>
-      </MacBookShell>
+      </ResponsiveShell>
     </main>
   );
 }

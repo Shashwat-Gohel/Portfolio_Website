@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import { X, FileText, LayoutGrid, MousePointer2, XCircle, RotateCw, Share2, Search, Clock, Folder, Monitor, Download, HardDrive, File, ChevronRight, GraduationCap, Cloud } from "lucide-react";
 import { Project } from "@/lib/projectData";
@@ -33,24 +33,36 @@ export const ProjectWindow = ({
   dragConstraints
 }: ProjectWindowProps) => {
   const dragControls = useDragControls();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const isFullScreen = isMobile;
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          drag
+          drag={!isFullScreen}
           dragControls={dragControls}
           dragMomentum={false}
           dragListener={false}
           dragConstraints={dragConstraints}
           onPointerDown={onFocus}
-          initial={{ scale: 0.95, opacity: 0, y: 10 }}
+          initial={isFullScreen ? { opacity: 0, y: 20 } : { scale: 0.95, opacity: 0, y: 10 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.95, opacity: 0, y: 10 }}
+          exit={isFullScreen ? { opacity: 0, y: 20 } : { scale: 0.95, opacity: 0, y: 10 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{ zIndex }}
           className={cn(
             "absolute bg-[#1a1a1a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10",
-            "w-[96%] left-[2%] h-[90%] top-[5%] md:w-[88%] md:left-[6%] md:h-[78%] md:top-[11%] md:max-w-4xl"
+            isFullScreen 
+              ? "inset-2 w-auto h-auto rounded-[1.8rem] bottom-16" 
+              : "w-[96%] left-[2%] h-[90%] top-[5%] md:w-[88%] md:left-[6%] md:h-[78%] md:top-[11%] md:max-w-4xl"
           )}
         >
           {/* macOS Finder Toolbar */}

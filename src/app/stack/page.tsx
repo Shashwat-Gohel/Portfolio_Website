@@ -2,10 +2,10 @@
 
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { MacBookShell } from "@/components/work/MacBookShell";
 import { ProjectFolder } from "@/components/work/ProjectFolder";
 import { StackLogWindow } from "@/components/stack/StackLogWindow";
 import { MacDock } from "@/components/work/MacDock";
+import { ResponsiveShell } from "@/components/work/ResponsiveShell";
 import { STACK_DATA, SkillCategory } from "@/lib/stackData";
 
 interface WindowInstance {
@@ -58,11 +58,11 @@ export default function StackLog() {
                      h-[100dvh] pt-[57px] md:pt-0 px-2 sm:px-4 md:px-6 pb-2 md:pb-6">
       <div className="absolute inset-0 bg-black -z-10" />
 
-      <MacBookShell>
-        <div ref={constraintsRef} className="relative h-full w-full p-4 flex flex-col pt-8 overflow-hidden">
+      <ResponsiveShell>
+        <div ref={constraintsRef} className="relative h-full w-full p-4 flex flex-col pt-4 overflow-hidden">
           
-          {/* Desktop Skill Folder Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-8 p-4 sm:p-8 overflow-y-auto custom-scrollbar-hidden w-full h-full content-start pb-32">
+          {/* Desktop Skill Folder Grid - Responsive alignment */}
+          <div className="flex flex-wrap md:justify-start justify-center items-start gap-4 sm:gap-8 p-4 sm:p-8 overflow-y-auto custom-scrollbar-hidden w-full h-full content-start pb-32">
             {STACK_DATA.map((cat) => (
               <ProjectFolder 
                 key={cat.id}
@@ -95,7 +95,7 @@ export default function StackLog() {
             System Inventory: Accessing Technical Assets
           </motion.p>
         </div>
-      </MacBookShell>
+      </ResponsiveShell>
     </main>
   );
 }
