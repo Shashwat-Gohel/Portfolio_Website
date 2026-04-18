@@ -116,7 +116,7 @@ export default function WorkArchive() {
             </Link>
 
             {/* Grade Sheet File */}
-            <Link href="/Grade_Sheet.pdf" target="_blank" className="flex flex-col items-center gap-2 w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
+            <Link href="/Grade_sheet.pdf" target="_blank" className="flex flex-col items-center gap-2 w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
               <div className="relative w-16 h-16 pointer-events-none drop-shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/90">
                   <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white"/>
