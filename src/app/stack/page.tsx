@@ -20,23 +20,22 @@ export default function StackLog() {
   const constraintsRef = useRef<HTMLDivElement>(null);
 
   const openWindow = (category: SkillCategory) => {
-    const existing = openWindows.find(w => w.category.id === category.id);
-    if (existing) {
-      focusWindow(existing.id);
-      return;
-    }
+    setOpenWindows(prev => {
+      const existing = prev.find(w => w.category.id === category.id);
+      if (existing) return prev;
 
-    const newZ = topZIndex + 1;
-    setTopZIndex(newZ);
-    
-    const id = Math.random().toString(36).substr(2, 9);
-    const newWindow: WindowInstance = {
-      id,
-      category,
-      zIndex: newZ,
-    };
-    
-    setOpenWindows(prev => [...prev, newWindow]);
+      const newZ = topZIndex + 1;
+      setTopZIndex(newZ);
+      
+      const id = Math.random().toString(36).substr(2, 9);
+      const newWindow: WindowInstance = {
+        id,
+        category,
+        zIndex: newZ,
+      };
+      
+      return [...prev, newWindow];
+    });
   };
 
   const closeWindow = (id: string) => {

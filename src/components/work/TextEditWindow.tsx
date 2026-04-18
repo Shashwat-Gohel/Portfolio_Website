@@ -23,9 +23,33 @@ export const TextEditWindow = ({
   dragConstraints
 }: TextEditWindowProps) => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [displayText, setDisplayText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
   
   const dragControls = useDragControls();
   
+  const isWip = project?.id === "publications-wip";
+
+  React.useEffect(() => {
+    if (isWip && project?.details?.introduction) {
+      setDisplayText("");
+      setIsTyping(true);
+      const fullText = project.details.introduction;
+      let i = 0;
+      const timer = setInterval(() => {
+        setDisplayText(fullText.substring(0, i + 1));
+        i++;
+        if (i >= fullText.length) {
+          clearInterval(timer);
+          setIsTyping(false);
+        }
+      }, 50);
+      return () => clearInterval(timer);
+    } else if (project?.details?.introduction) {
+      setDisplayText(project.details.introduction);
+    }
+  }, [project, isWip]);
+
   if (!project || !project.details) return null;
 
   const handleCopy = (command: string, id: string) => {
@@ -35,7 +59,7 @@ export const TextEditWindow = ({
   };
 
   const { details } = project;
-  const fileName = `${project.id.toLowerCase().replace(/ /g, "_")}.log`;
+  const fileName = project.title.endsWith('.txt') ? project.title : `${project.id.toLowerCase().replace(/ /g, "_")}.log`;
   const timestamp = new Date().toUTCString().replace("GMT", "IST 2026");
 
   return (
@@ -129,32 +153,36 @@ export const TextEditWindow = ({
             <div className="flex flex-col gap-2">
               <span className="text-[#4ade80] font-bold">[INFO] INITIALIZING_CORE: intro_manifest</span>
               <p className="text-white/80 pl-4 border-l border-white/10 ml-1">
-                {details.introduction}
+                {displayText}
+                {isTyping && <span className="inline-block w-1.5 h-3.5 bg-[#4ade80] ml-1 animate-pulse align-middle" />}
               </p>
-              <div className="flex flex-wrap gap-2 pl-4 mt-2">
-                {details.techStackDetailed.map((stack, i) => (
-                  <span key={i} className="px-2 py-0.5 bg-white/5 rounded text-[10px] text-white/50 border border-white/10">
-                    {stack}
-                  </span>
-                ))}
-              </div>
+              {!isWip && details.techStackDetailed && (
+                <div className="flex flex-wrap gap-2 pl-4 mt-2">
+                  {details.techStackDetailed.map((stack, i) => (
+                    <span key={i} className="px-2 py-0.5 bg-white/5 rounded text-[10px] text-white/50 border border-white/10">
+                      {stack}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* 2. Requirements */}
-            <div className="flex flex-col gap-2">
-              <span className="text-[#fbbf24] font-bold">[REQS] LOADING_PREREQUISITES: system_env_check</span>
-              <div className="pl-4 space-y-1 border-l border-white/10 ml-1">
-                {details.requirements.map((req, i) => (
-                  <div key={i} className="flex items-center gap-2 text-white/60 text-[11px]">
-                    <AlertCircle size={12} className="text-[#fbbf24]/60" />
-                    <span>{req}</span>
-                  </div>
-                ))}
+            {!isWip && details.requirements && (
+              <div className="flex flex-col gap-2">
+                <span className="text-[#fbbf24] font-bold">[REQS] LOADING_PREREQUISITES: system_env_check</span>
+                <div className="pl-4 space-y-1 border-l border-white/10 ml-1">
+                  {details.requirements.map((req, i) => (
+                    <div key={i} className="flex items-center gap-2 text-white/60 text-[11px]">
+                      <AlertCircle size={12} className="text-[#fbbf24]/60" />
+                      <span>{req}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* 3. Achievements (SDE Only) */}
-            {details.achievements && (
+            {!isWip && details.achievements && (
               <div className="flex flex-col gap-2">
                 <span className="text-[#22d3ee] font-bold">[ACHV] EXTRACTION_SUCCESS: project_impact_metrics</span>
                 <div className="pl-4 space-y-2 border-l border-white/10 ml-1">
@@ -169,7 +197,7 @@ export const TextEditWindow = ({
             )}
 
             {/* 4. Results (ML Only) */}
-            {details.results && (
+            {!isWip && details.results && (
               <div className="flex flex-col gap-2">
                 <span className="text-[#a855f7] font-bold">[RESULT] METRIC_VALIDATION: model_inference_report</span>
                 <div className="pl-4 space-y-2 border-l border-white/10 ml-1">
@@ -184,32 +212,34 @@ export const TextEditWindow = ({
             )}
 
             {/* 5. Clone Guide Chart */}
-            <div className="flex flex-col gap-2">
-              <span className="text-[#38bdf8] font-bold">[GUIDE] REPO_CLONE_CHART: step_by_step_deployment</span>
-              <div className="pl-4 space-y-4 border-l border-white/10 ml-1 mt-2">
-                {details.cloneGuide.map((step, i) => {
-                  const stepId = `step-${i}`;
-                  return (
-                    <div key={i} className="flex flex-col gap-1.5">
-                      <span className="text-white/40 text-[10px] uppercase tracking-wider">{i+1}. {step.step}</span>
-                      <div className="flex items-center justify-between gap-3 bg-black/40 border border-white/5 p-2.5 rounded group hover:border-white/10 transition-colors">
-                        <div className="flex items-center gap-3 overflow-hidden">
-                          <TerminalSquare size={13} className="text-white/20 flex-shrink-0" />
-                          <code className="text-[#38bdf8] text-[11px] break-all truncate">{step.command}</code>
+            {!isWip && details.cloneGuide && (
+              <div className="flex flex-col gap-2">
+                <span className="text-[#38bdf8] font-bold">[GUIDE] REPO_CLONE_CHART: step_by_step_deployment</span>
+                <div className="pl-4 space-y-4 border-l border-white/10 ml-1 mt-2">
+                  {details.cloneGuide.map((step, i) => {
+                    const stepId = `step-${i}`;
+                    return (
+                      <div key={i} className="flex flex-col gap-1.5">
+                        <span className="text-white/40 text-[10px] uppercase tracking-wider">{i+1}. {step.step}</span>
+                        <div className="flex items-center justify-between gap-3 bg-black/40 border border-white/5 p-2.5 rounded group hover:border-white/10 transition-colors">
+                          <div className="flex items-center gap-3 overflow-hidden">
+                            <TerminalSquare size={13} className="text-white/20 flex-shrink-0" />
+                            <code className="text-[#38bdf8] text-[11px] break-all truncate">{step.command}</code>
+                          </div>
+                          <button 
+                            onClick={() => handleCopy(step.command, stepId)}
+                            className="flex-shrink-0 p-1.5 rounded bg-white/5 hover:bg-white/10 text-white/40 hover:text-white/80 transition-all"
+                            title="Copy to clipboard"
+                          >
+                            {copiedId === stepId ? <Check size={12} className="text-[#4ade80]" /> : <Copy size={12} />}
+                          </button>
                         </div>
-                        <button 
-                          onClick={() => handleCopy(step.command, stepId)}
-                          className="flex-shrink-0 p-1.5 rounded bg-white/5 hover:bg-white/10 text-white/40 hover:text-white/80 transition-all"
-                          title="Copy to clipboard"
-                        >
-                          {copiedId === stepId ? <Check size={12} className="text-[#4ade80]" /> : <Copy size={12} />}
-                        </button>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
 
 
 

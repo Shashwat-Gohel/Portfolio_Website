@@ -267,11 +267,15 @@ export const ProjectWindow = ({
                     )}
                   >
                     <div className="w-full sm:w-1/2 flex items-center gap-2 pr-4">
-                      {/* Folder Icon representing project */}
-                      <svg viewBox="0 0 24 24" fill="#007AFF" className="w-4 h-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.25 6.75C2.25 5.92157 2.92157 5.25 3.75 5.25H8.64645C8.84536 5.25 9.03613 5.32902 9.17678 5.46967L11.4697 7.76256C11.6103 7.90321 11.8011 7.98223 12 7.98223H20.25C21.0784 7.98223 21.75 8.65366 21.75 9.48209V17.25C21.75 18.0784 21.0784 18.75 20.25 18.75H3.75C2.92157 18.75 2.25 18.0784 2.25 17.25V6.75Z" />
-                        <path d="M2.25 6.75C2.25 5.92157 2.92157 5.25 3.75 5.25H8.64645C8.84536 5.25 9.03613 5.32902 9.17678 5.46967L11.4697 7.76256C11.6103 7.90321 11.8011 7.98223 12 7.98223H20.25C21.0784 7.98223 21.75 8.65366 21.75 9.48209V9.75H2.25V6.75Z" fill="rgba(255,255,255,0.1)" />
-                      </svg>
+                      {/* Icon representing project - show file icon for .txt files */}
+                      {project.title.endsWith('.txt') ? (
+                        <File size={16} className="text-white/60 flex-shrink-0" />
+                      ) : (
+                        <svg viewBox="0 0 24 24" fill="#007AFF" className="w-4 h-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.25 6.75C2.25 5.92157 2.92157 5.25 3.75 5.25H8.64645C8.84536 5.25 9.03613 5.32902 9.17678 5.46967L11.4697 7.76256C11.6103 7.90321 11.8011 7.98223 12 7.98223H20.25C21.0784 7.98223 21.75 8.65366 21.75 9.48209V17.25C21.75 18.0784 21.0784 18.75 20.25 18.75H3.75C2.92157 18.75 2.25 18.0784 2.25 17.25V6.75Z" />
+                          <path d="M2.25 6.75C2.25 5.92157 2.92157 5.25 3.75 5.25H8.64645C8.84536 5.25 9.03613 5.32902 9.17678 5.46967L11.4697 7.76256C11.6103 7.90321 11.8011 7.98223 12 7.98223H20.25C21.0784 7.98223 21.75 8.65366 21.75 9.48209V9.75H2.25V6.75Z" fill="rgba(255,255,255,0.1)" />
+                        </svg>
+                      )}
                       <span className="text-[12px] font-medium text-white/90 truncate">{project.title}</span>
                     </div>
                     <div className="hidden sm:block w-1/4 text-[11px] text-white/60 truncate">Today at 10:15</div>

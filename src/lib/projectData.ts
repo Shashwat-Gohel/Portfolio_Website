@@ -358,5 +358,22 @@ export const PROJECTS: Project[] = [
       ],
       liveDemoLink: "/assets/certifications/Introduction to NLM.pdf"
     }
+  },
+  {
+    id: "publications-wip",
+    title: "publications.txt",
+    description: "Work in progress documentation for upcoming publications.",
+    tech: ["Documentation"],
+    category: "media",
+    details: {
+      introduction: "System check: Publications directory is currently under optimization...",
+      features: ["Research Papers", "Technical Blogs", "Conference Submissions"],
+      techStackDetailed: ["LaTeX", "Markdown", "Obsidian"],
+      requirements: ["Access Authorization"],
+      cloneGuide: [
+        { step: "Initialize Scan", command: "cat ./publications/wip.log" },
+        { step: "Status Check", command: "ls -la /publications" }
+      ]
+    }
   }
 ];

@@ -19,8 +19,7 @@ export const ProjectFolder = ({ label, onClick, className }: ProjectFolderProps)
       whileTap={{ scale: 0.92 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      onDoubleClick={onClick}
-      onClick={onClick}  // Single-tap on mobile, double-click on desktop both work
+      onClick={onClick}
       className={cn(
         "flex flex-col items-center gap-1.5 sm:gap-2 w-20 sm:w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 z-20 select-none",
         className

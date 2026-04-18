@@ -31,28 +31,34 @@ export default function WorkArchive() {
   };
 
   const openWindow = (type: 'finder' | 'log', data: any) => {
-    const newZ = topZIndex + 1;
-    setTopZIndex(newZ);
-
-    // For categories, check if already open
-    if (type === 'finder') {
-      const existing = openWindows.find(w => w.category === data);
-      if (existing) {
-        focusWindow(existing.id);
-        return;
+    setOpenWindows(prev => {
+      // For categories (finder), check if already open to avoid duplicates
+      if (type === 'finder') {
+        const existing = prev.find(w => w.category === data);
+        if (existing) return prev;
       }
-    }
+      
+      // For specific project logs, allow duplicates if they are different projects,
+      // but if it's the SAME project, focus existing
+      if (type === 'log') {
+        const existing = prev.find(w => w.project?.id === data.id);
+        if (existing) return prev;
+      }
 
-    const id = Math.random().toString(36).substr(2, 9);
-    const newWindow: WindowInstance = {
-      id,
-      type,
-      zIndex: newZ,
-      category: type === 'finder' ? data : undefined,
-      project: type === 'log' ? data : undefined,
-    };
-
-    setOpenWindows(prev => [...prev, newWindow]);
+      const id = Math.random().toString(36).substr(2, 9);
+      const newZ = topZIndex + 1;
+      setTopZIndex(newZ);
+      
+      const newWindow: WindowInstance = {
+        id,
+        type,
+        zIndex: newZ,
+        category: type === 'finder' ? data : undefined,
+        project: type === 'log' ? data : undefined,
+      };
+      
+      return [...prev, newWindow];
+    });
   };
 
   const closeWindow = (id: string) => {
