@@ -51,12 +51,12 @@ export const TextEditWindow = ({
         exit={{ scale: 0.98, opacity: 0 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
         style={{ zIndex }}
-        className="absolute w-[88%] max-w-4xl h-[78%] left-[6%] top-[11%] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/5"
+        className="absolute w-[88%] max-w-4xl h-[78%] left-[6%] top-[11%] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10"
       >
         {/* macOS Log Header */}
         <div 
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex items-center justify-between px-4 py-2.5 bg-[#161616] border-b border-white/5 select-none cursor-default active:cursor-grabbing"
+          className="flex items-center justify-between px-4 py-2.5 bg-[#161616] border-b border-white/5 select-none cursor-default active:cursor-grabbing rounded-t-[2.2rem]"
         >
           <div className="flex gap-2 w-24 relative z-10">
             <button 
@@ -83,7 +83,7 @@ export const TextEditWindow = ({
         </div>
 
         {/* Log Viewer Body */}
-        <div className="flex-1 overflow-y-auto p-6 flex flex-col font-mono text-[12px] leading-relaxed select-text custom-scrollbar">
+        <div className="flex-1 overflow-y-auto p-6 flex flex-col font-mono text-[12px] leading-relaxed select-text custom-scrollbar rounded-b-[2.2rem]">
           
           <div className="text-white/40 mb-6 border-b border-white/5 pb-4">
             --------------------------------------------------------------------------------<br />

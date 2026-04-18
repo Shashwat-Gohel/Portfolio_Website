@@ -48,12 +48,12 @@ export const ExperienceWindow = ({
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
         style={{ zIndex }}
-        className="absolute w-[92%] max-w-2xl h-[70%] left-[4%] top-[15%] sm:left-[15%] sm:top-[15%] bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-xl shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden ring-1 ring-white/5"
+        className="absolute w-[92%] max-w-2xl h-[70%] left-[4%] top-[15%] sm:left-[15%] sm:top-[15%] bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden ring-1 ring-white/10"
       >
         {/* Header */}
         <div 
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex items-center justify-between px-4 py-3 bg-[#161616] border-b border-white/5 select-none cursor-default active:cursor-grabbing"
+          className="flex items-center justify-between px-4 py-3 bg-[#161616] border-b border-white/5 select-none cursor-default active:cursor-grabbing rounded-t-[2.2rem]"
         >
           <div className="flex gap-2 relative z-10 w-24">
             <button 
@@ -80,7 +80,7 @@ export const ExperienceWindow = ({
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6 font-mono text-[12px] leading-relaxed select-text custom-scrollbar">
+        <div className="flex-1 overflow-y-auto p-6 font-mono text-[12px] leading-relaxed select-text custom-scrollbar rounded-b-[2.2rem]">
           
           <div className="text-white/40 mb-6 border-b border-white/5 pb-4">
             --------------------------------------------------------------------------------<br />

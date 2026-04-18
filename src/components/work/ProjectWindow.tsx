@@ -48,12 +48,12 @@ export const ProjectWindow = ({
           exit={{ scale: 0.95, opacity: 0, y: 10 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{ zIndex }}
-          className="absolute w-[88%] max-w-4xl h-[78%] left-[6%] top-[11%] bg-[#1a1a1a]/95 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/5"
+          className="absolute w-[88%] max-w-4xl h-[78%] left-[6%] top-[11%] bg-[#1a1a1a]/95 backdrop-blur-2xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/10"
         >
           {/* macOS Finder Toolbar */}
           <div 
             onPointerDown={(e) => dragControls.start(e)}
-            className="flex flex-col bg-white/5 border-b border-white/5 select-none pt-3 pb-2 cursor-default active:cursor-grabbing"
+            className="flex flex-col bg-white/5 border-b border-white/5 select-none pt-3 pb-2 cursor-default active:cursor-grabbing rounded-t-[2.2rem]"
           >
             
             {/* Top Row: Traffic Lights & Title */}
@@ -134,7 +134,7 @@ export const ProjectWindow = ({
           {/* Window Content: Sidebar + List View */}
           <div className="flex flex-1 overflow-hidden">
             {/* Sidebar (Left Pane) */}
-            <div className="w-56 bg-black/40 border-r border-white/5 flex flex-col py-3 overflow-y-auto custom-scrollbar flex-shrink-0">
+            <div className="w-56 bg-black/40 border-r border-white/5 flex flex-col py-3 overflow-y-auto custom-scrollbar flex-shrink-0 rounded-bl-[2.2rem]">
               
               {/* Recents / Shared */}
               <div className="px-3 space-y-1 mb-4">
@@ -236,7 +236,7 @@ export const ProjectWindow = ({
             </div>
 
             {/* Main Content (Right Pane - List View) */}
-            <div className="flex-1 flex flex-col overflow-hidden bg-[#1e1e1e]/50">
+            <div className="flex-1 flex flex-col overflow-hidden bg-[#1e1e1e]/50 rounded-br-[2.2rem]">
               
               {/* List Header */}
               <div className="flex items-center px-4 py-1.5 border-b border-white/10 text-[10px] text-white/40 font-medium tracking-tight">

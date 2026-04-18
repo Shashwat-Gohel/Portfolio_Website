@@ -12,18 +12,18 @@ export const MacBookShell = ({ children, className }: MacBookShellProps) => {
   return (
     <div className={cn("relative mx-auto w-full max-w-5xl transition-all duration-700 h-auto flex justify-center", className)}>
       {/* Outer Case / Aluminum Frame */}
-      <div className="relative bg-[#0d0d0d] rounded-[2rem] p-0 border border-white/5 aspect-[16/10] h-auto w-full mt-[2vh]">
+      <div className="relative bg-[#0d0d0d] rounded-[3rem] p-0 border border-white/5 aspect-[16/10] h-auto w-full mt-[2vh]">
 
         {/* Screen Bezel */}
-        <div className="relative bg-black rounded-[2.2rem] p-3 overflow-hidden shadow-inner aspect-[16/10] h-fill">
+        <div className="relative bg-black rounded-[2.8rem] p-3 overflow-hidden shadow-inner aspect-[16/10] h-fill">
 
           {/* Top Notch Container */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-black z-[100] rounded-b-xl flex items-center justify-center gap-2">
-            <div className="w-1 h-1 rounded-full bg-[#1a1a1a] shadow-inner" /> {/* Camera */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-black z-[100] rounded-b-2xl flex items-center justify-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#1a1a1a] shadow-inner" /> {/* Camera */}
           </div>
 
           {/* Actual Screen Content / Desktop */}
-          <div className="relative w-full h-full rounded-[1.5rem] overflow-hidden bg-black shadow-2xl">
+          <div className="relative w-full h-full rounded-[2.2rem] overflow-hidden bg-black shadow-2xl">
             {/* Local wallpaper from public/image.png */}
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -32,7 +32,7 @@ export const MacBookShell = ({ children, className }: MacBookShellProps) => {
             </div>
 
 
-            <div className="relative h-full w-full z-10 overflow-hidden rounded-[1.5rem]">
+            <div className="relative h-full w-full z-10 overflow-hidden rounded-[2.2rem]">
               {children}
             </div>
           </div>

@@ -36,6 +36,14 @@ const CodeChefIcon = ({ size, color, className }: any) => (
   </svg>
 );
 
+const InstagramIcon = ({ size, color, className }: any) => (
+  <svg width={size} height={size} fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} viewBox="0 0 24 24">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
 const GmailIcon = ({ size, color, className }: any) => (
   <svg width={size} height={size} fill={color} className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
@@ -43,18 +51,19 @@ const GmailIcon = ({ size, color, className }: any) => (
 );
 
 const dockItems = [
-  { name: "GitHub", icon: GithubIcon, color: "#ffffff", link: "https://github.com/shashwatgohel", target: "_blank" },
-  { name: "LinkedIn", icon: LinkedinIcon, color: "#0077b5", link: "https://linkedin.com/in/shashwatgohel", target: "_blank" },
-  { name: "Mail", icon: GmailIcon, color: "#EA4335", link: "mailto:shashwat.@ahduni.edu.in", target: "_blank" },
-  { name: "LeetCode", icon: LeetCodeIcon, color: "#FFA116", link: "https://leetcode.com/shashwatgohel", target: "_blank" },
-  { name: "CodeChef", icon: CodeChefIcon, color: "#5B4638", link: "https://www.codechef.com/users/shashwatgohel", target: "_blank" },
+  { name: "GitHub", icon: GithubIcon, color: "#ffffff", gradient: "from-[#24292e] to-[#040d16]", link: "https://github.com/shashwatgohel", target: "_blank" },
+  { name: "LinkedIn", icon: LinkedinIcon, color: "#ffffff", gradient: "from-[#0077b5] to-[#004182]", link: "https://linkedin.com/in/shashwatgohel", target: "_blank" },
+  { name: "Mail", icon: GmailIcon, color: "#ffffff", gradient: "from-[#EA4335] via-[#DB4437] to-[#C5221F]", link: "/contact" },
+  { name: "LeetCode", icon: LeetCodeIcon, color: "#ffffff", gradient: "from-[#FFA116] to-[#F1592B]", link: "https://leetcode.com/shashwatgohel", target: "_blank" },
+  { name: "CodeChef", icon: CodeChefIcon, color: "#ffffff", gradient: "from-[#5B4638] to-[#3B2B20]", link: "https://www.codechef.com/users/shashwatgohel", target: "_blank" },
+  { name: "Instagram", icon: InstagramIcon, color: "#ffffff", gradient: "bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045]", link: "https://instagram.com/_shashwatgohel", target: "_blank" },
 ];
 
 export const MacDock = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-5 px-6 py-3 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-2xl shadow-2xl z-50">
+    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-3 px-4 py-3 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50">
       {dockItems.map((item, index) => {
         return (
           <div key={item.name} className="relative group flex flex-col items-center">
@@ -65,7 +74,7 @@ export const MacDock = () => {
                   initial={{ opacity: 0, y: 10, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  className="absolute -top-10 px-2 py-1 bg-[#1e1e1e] border border-white/10 rounded-md text-white/90 text-[10px] font-sans whitespace-nowrap shadow-xl"
+                  className="absolute -top-10 px-2 py-1 bg-[#1e1e1e] border border-white/10 rounded-md text-white/90 text-[10px] font-sans whitespace-nowrap shadow-xl z-[100]"
                 >
                   {item.name}
                   {/* Tooltip Arrow */}
@@ -75,19 +84,32 @@ export const MacDock = () => {
             </AnimatePresence>
 
             <Link href={item.link || "#"} target={item.target || "_self"} passHref>
-              <div
+              <motion.div
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-gradient-to-b from-white/20 to-transparent border border-white/20 shadow-lg cursor-pointer overflow-hidden relative transition-all duration-200 hover:brightness-125 hover:border-white/40 hover:-translate-y-1"
-                style={{
-                  backgroundColor: item.color ? `color-mix(in srgb, ${item.color} 20%, transparent)` : "transparent",
-                  borderColor: item.color ? `color-mix(in srgb, ${item.color} 40%, transparent)` : "transparent"
+                whileHover={{ 
+                  scale: 1.3,
+                  y: -10,
                 }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17 
+                }}
+                className={cn(
+                  "w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl shadow-lg cursor-pointer overflow-hidden relative border border-white/10",
+                  item.name === "Instagram" ? item.gradient : `bg-gradient-to-br ${item.gradient}`
+                )}
               >
-                  {/* Inner shine */}
-                  <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-xl" />
-                  {item.icon && <item.icon size={22} color={item.color} className="relative z-10" />}
-              </div>
+                  {/* Glassy Shine Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/20 opacity-40" />
+                  <div className="absolute top-0 inset-x-0 h-[40%] bg-white/20 rounded-t-xl" />
+                  
+                  {item.icon && <item.icon size={22} color={item.color} className="relative z-10 drop-shadow-md" />}
+                  
+                  {/* Inner Border Shadow */}
+                  <div className="absolute inset-0 rounded-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]" />
+              </motion.div>
             </Link>
           </div>
         );
