@@ -2,7 +2,6 @@
 
 A high-fidelity, macOS-inspired digital architecture designed to showcase technical precision and creative engineering. This portfolio leverages a sophisticated terminal/finder app aesthetic to deliver an immersive, immersive developer experience.
 
-![Portfolio Preview](/public/assets/preview.png) *(Note: Add a high-res screenshot to public/assets/preview.png for absolute polish)*
 
 ## 🖥️ System Architecture
 
