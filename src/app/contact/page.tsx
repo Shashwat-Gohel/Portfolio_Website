@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MacBookShell } from "@/components/work/MacBookShell";
+import { ResponsiveShell } from "@/components/work/ResponsiveShell";
 import { MacDock } from "@/components/work/MacDock";
 import { 
   Mail, 
@@ -218,6 +218,14 @@ STATUS: ENCRYPTED & ONLINE`,
     setSelectedMailId("");
   };
 
+  const handleSelectMail = (id: string) => {
+    setSelectedMailId(prev => (prev === id ? prev : id));
+    setIsComposing(false);
+    if (!readMailIds.includes(id)) {
+      setReadMailIds(prev => prev.includes(id) ? prev : [...prev, id]);
+    }
+  };
+
   const handleArchiveSelected = () => {
     if (!selectedMailId || selectedMailId === "official-welcome") return;
     setArchivedMailIds(prev => [...prev, selectedMailId]);
@@ -256,7 +264,7 @@ STATUS: ENCRYPTED & ONLINE`,
                      h-[100dvh] pt-[57px] md:pt-0 px-2 sm:px-4 md:px-6 pb-2 md:pb-6">
       <div className="absolute inset-0 bg-black -z-10" />
 
-      <MacBookShell>
+      <ResponsiveShell>
         <div ref={constraintsRef} className="relative h-full w-full p-0 flex flex-col overflow-hidden rounded-[2.2rem]">
           
           <motion.div
@@ -267,19 +275,19 @@ STATUS: ENCRYPTED & ONLINE`,
             {/* Unified macOS Toolbar */}
             <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-[#161616] border-b border-white/5 select-none z-20 rounded-t-[2.2rem]">
               <div className="flex items-center gap-8">
-                <div className="flex gap-2 min-w-[60px]">
+                <div className="flex items-center gap-2 min-w-[60px]">
                   <div 
                     onClick={() => {
                       if (selectedMailId) setSelectedMailId("");
                       else if (isComposing) setIsComposing(false);
                       else window.history.back();
                     }}
-                    className="w-3 h-3 rounded-full bg-[#FF5F56] cursor-pointer hover:bg-[#FF5F56]/80 flex items-center justify-center group"
+                    className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FF5F56] cursor-pointer hover:bg-[#FF5F56]/80 flex items-center justify-center group p-0"
                   >
                      {(selectedMailId || isComposing) && <ChevronRight size={8} className="text-black/60 rotate-180" />}
                   </div>
-                  <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                  <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+                  <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FFBD2E]" />
+                  <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#27C93F]" />
                 </div>
                 
                 <div className="flex items-center gap-6 text-white/40">
@@ -418,13 +426,7 @@ STATUS: ENCRYPTED & ONLINE`,
                       currentDisplayItems.map((item) => (
                         <div 
                           key={item.id}
-                          onClick={() => { 
-                            setSelectedMailId(item.id); 
-                            setIsComposing(false); 
-                            if (!readMailIds.includes(item.id)) {
-                              setReadMailIds(prev => [...prev, item.id]);
-                            }
-                          }}
+                          onClick={() => handleSelectMail(item.id)}
                           className={`p-4 rounded-xl flex flex-col gap-1.5 cursor-default transition-all duration-300 border ${
                             selectedMailId === item.id 
                               ? "bg-white/10 border-white/10 shadow-xl" 
@@ -573,7 +575,7 @@ STATUS: ENCRYPTED & ONLINE`,
           <MacDock />
 
         </div>
-      </MacBookShell>
+      </ResponsiveShell>
     </main>
   );
 }

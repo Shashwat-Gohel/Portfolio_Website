@@ -50,7 +50,7 @@ export const ExperienceWindow = ({
         transition={{ duration: 0.2, ease: "easeOut" }}
         style={{ zIndex }}
         className={cn(
-          "absolute bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden ring-1 ring-white/10 transition-all duration-500",
+          "absolute bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-[2.2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden ring-1 ring-white/10",
           "w-[96%] left-[2%] h-[90%] top-[5%] sm:w-[92%] sm:max-w-2xl sm:h-[70%] sm:left-[15%] sm:top-[15%]"
         )}
       >
@@ -59,16 +59,16 @@ export const ExperienceWindow = ({
           onPointerDown={(e) => dragControls.start(e)}
           className="flex items-center justify-between px-4 py-3 bg-[#161616] border-b border-white/5 select-none cursor-default active:cursor-grabbing rounded-t-[2.2rem]"
         >
-          <div className="flex gap-2 relative z-10 w-24">
+          <div className="flex items-center gap-2 relative z-10 w-24">
             <button 
               type="button"
               onClick={(e) => { e.stopPropagation(); onClose(); }} 
-              className="w-3 h-3 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group transition-colors"
+              className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group transition-colors p-0"
             >
               <X size={8} className="text-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
-            <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-            <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+            <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FFBD2E]" />
+            <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#27C93F]" />
           </div>
           
           <div className="absolute inset-x-0 flex items-center justify-center pointer-events-none gap-2">

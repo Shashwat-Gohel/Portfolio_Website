@@ -119,15 +119,17 @@ const MacShell = ({ children, className }: ShellProps) => (
 );
 
 export const ResponsiveShell = ({ children, className }: ShellProps) => {
-  const [device, setDevice] = useState<"phone" | "tablet" | "desktop">("desktop");
+  const [device, setDevice] = useState<"phone" | "tablet" | "desktop" | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const handleResize = () => {
-      if (window.innerWidth < 640) setDevice("phone");
-      else if (window.innerWidth < 1024) setDevice("tablet");
-      else setDevice("desktop");
+      let currentDevice: "phone" | "tablet" | "desktop" = "desktop";
+      if (window.innerWidth < 640) currentDevice = "phone";
+      else if (window.innerWidth < 1024) currentDevice = "tablet";
+      
+      setDevice(currentDevice);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -139,16 +141,16 @@ export const ResponsiveShell = ({ children, className }: ShellProps) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={device}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="w-full flex justify-center items-center"
+        key={device || 'initial'}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="w-full h-full flex items-center justify-center overflow-hidden"
       >
         {device === "phone" && <IPhoneShell className={className}>{children}</IPhoneShell>}
         {device === "tablet" && <IPadShell className={className}>{children}</IPadShell>}
-        {device === "desktop" && <MacShell className={className}>{children}</MacShell>}
+        {(device === "desktop" || device === null) && <MacShell className={className}>{children}</MacShell>}
       </motion.div>
     </AnimatePresence>
   );

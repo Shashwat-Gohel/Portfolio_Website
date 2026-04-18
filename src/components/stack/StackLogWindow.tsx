@@ -23,6 +23,16 @@ export const StackLogWindow = ({
 }: StackLogWindowProps) => {
   const [visibleSkills, setVisibleSkills] = useState<Skill[]>([]);
   const dragControls = useDragControls();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const isFullScreen = isMobile;
 
   useEffect(() => {
     if (category) {
@@ -61,8 +71,10 @@ export const StackLogWindow = ({
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         style={{ zIndex }}
         className={cn(
-          "absolute bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/5 transition-all duration-500",
-          "w-[96%] left-[2%] h-[88%] top-[6%] md:w-[88%] md:max-w-4xl md:h-[78%] md:left-[6%] md:top-[11%]"
+          "absolute bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] flex flex-col overflow-hidden ring-1 ring-white/5",
+          isFullScreen 
+            ? "inset-2 w-auto h-auto rounded-xl bottom-16" 
+            : "w-[96%] left-[2%] h-[88%] top-[6%] md:w-[88%] md:max-w-4xl md:h-[78%] md:left-[6%] md:top-[11%]"
         )}
       >
         {/* macOS Terminal Header */}
@@ -70,16 +82,16 @@ export const StackLogWindow = ({
           onPointerDown={(e) => dragControls.start(e)}
           className="flex items-center justify-between px-4 py-2.5 bg-[#161616] border-b border-white/5 select-none cursor-default active:cursor-grabbing"
         >
-          <div className="flex gap-2 w-24 relative z-10">
+          <div className="flex items-center gap-2 w-24 relative z-10">
             <button 
               type="button"
               onClick={(e) => { e.stopPropagation(); onClose(); }} 
-              className="w-3 h-3 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group cursor-pointer"
+              className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 flex items-center justify-center group cursor-pointer p-0"
             >
               <X size={8} className="text-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
-            <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-            <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+            <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#FFBD2E]" />
+            <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#27C93F]" />
           </div>
           
           <div className="absolute inset-x-0 flex items-center justify-center pointer-events-none gap-2">
