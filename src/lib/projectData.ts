@@ -154,9 +154,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ml-data-dominators",
-    title: "Data Dominators - ML",
+    title: "Brain Tumor Detection",
     description: "Advanced deep learning project focusing on Brain Tumor Segmentation and Contours using MRI scan analysis.",
-    tech: ["Python", "CNN", "Segmentation", "OpenCV"],
+    tech: ["Python", "Classical ML", "Segmentation", "XGBoost"],
     category: "ml",
     details: {
       introduction: "A specialized computer vision project for precise brain tumor segmentation and contour detection from MRI scans, enabling detailed clinical analysis.",
