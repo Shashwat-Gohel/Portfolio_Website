@@ -84,7 +84,6 @@ export const PROJECTS: Project[] = [
         { step: "Deploy Smart Contracts", command: "npx hardhat run scripts/deploy.js --network sepolia" },
         { step: "Start DApp", command: "npm run dev" }
       ],
-      liveDemoLink: "https://kyc-chain.vercel.app",
       githubLink: "https://github.com/ShashwatGohel/Decentralized_KYC_Blockchain"
     }
   },

@@ -33,7 +33,7 @@ export default function WorkArchive() {
   const openWindow = (type: 'finder' | 'log', data: any) => {
     setOpenWindows(prev => {
       // Check if already open
-      const existing = type === 'finder' 
+      const existing = type === 'finder'
         ? prev.find(w => w.category === data)
         : prev.find(w => w.project?.id === data.id);
 
@@ -56,7 +56,7 @@ export default function WorkArchive() {
         category: type === 'finder' ? data : undefined,
         project: type === 'log' ? data : undefined,
       };
-      
+
       return [...prev, newWindow];
     });
   };
@@ -69,10 +69,10 @@ export default function WorkArchive() {
     setOpenWindows(prev => {
       const window = prev.find(w => w.id === id);
       if (!window) return prev;
-      
+
       const nextZ = topZIndex + 1;
       setTopZIndex(nextZ);
-      
+
       return prev.map(w =>
         w.id === id ? { ...w, zIndex: nextZ } : w
       );
@@ -113,7 +113,7 @@ export default function WorkArchive() {
             />
 
             {/* Resume File */}
-            <Link href="/ShashwatGohel_Resume-2.pdf" target="_blank" className="flex flex-col items-center gap-2 w-20 sm:w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
+            <Link href="/ShashwatGohel_Resume-1.pdf" target="_blank" className="flex flex-col items-center gap-2 w-20 sm:w-28 p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group z-20 flex-shrink-0">
               <div className="relative w-12 h-12 sm:w-16 h-16 pointer-events-none drop-shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/90">
                   <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white" />
