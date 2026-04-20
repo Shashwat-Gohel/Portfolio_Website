@@ -34,11 +34,9 @@ export default function RootLayout({
         <Navbar />
         <DottedSurface />
         {children}
+        <Analytics />
       </body>
     </html>
-
-
-
   );
 }
 
