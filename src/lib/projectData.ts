@@ -75,7 +75,6 @@ export const PROJECTS: Project[] = [
       achievements: [
         "Gas-optimized circuits reducing verification cost by 30%",
         "Successfully verified 500+ identities on Sepolia Testnet",
-        "Winner of Regional Blockchain Hackathon 2024"
       ],
       cloneGuide: [
         { step: "Clone Repo", command: "git clone https://github.com/ShashwatGohel/Decentralized_KYC_Blockchain.git" },

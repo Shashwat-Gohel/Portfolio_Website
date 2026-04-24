@@ -5,6 +5,7 @@ import { DottedSurface } from "@/components/ui/dotted-surface";
 import { Navbar } from "@/components/ui/Navbar";
 import { Analytics } from "@vercel/analytics/next"
 
+
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
