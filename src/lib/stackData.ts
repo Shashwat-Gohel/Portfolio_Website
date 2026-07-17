@@ -79,8 +79,7 @@ export const STACK_DATA: SkillCategory[] = [
     skills: [
       { name: "Node.js", logo: getLogo("nodejs") },
       { name: "Express.js", logo: getLogo("express") },
-      { name: "Flask", logo: getLogo("flask") },
-      { name: "REST APIs", logo: "https://www.vectorlogo.zone/logos/mulesoft/mulesoft-icon.svg" },
+      { name: "REST API & Backend", logo: "https://www.vectorlogo.zone/logos/mulesoft/mulesoft-icon.svg" },
       { name: "WebSockets", logo: "https://www.vectorlogo.zone/logos/ably/ably-icon.svg" },
       { name: "Socket.io", logo: "https://www.vectorlogo.zone/logos/socketio/socketio-icon.svg" },
       { name: "JWT Authentication", logo: "https://www.vectorlogo.zone/logos/auth0/auth0-icon.svg" },
@@ -130,6 +129,8 @@ export const STACK_DATA: SkillCategory[] = [
     title: "Core CS",
     skills: [
       { name: "Data Structures & Algorithms", logo: "https://www.vectorlogo.zone/logos/github/github-icon.svg" },
+      { name: "System Design", logo: "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/network.svg" },
+      { name: "Low-Level Design (LLD)", logo: "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/layers.svg" },
       { name: "Object-Oriented Programming", logo: "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/component.svg" },
       { name: "Database Management System", logo: "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/database.svg" },
       { name: "Operating Systems", logo: "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/hard-drive.svg" },

@@ -171,7 +171,7 @@ export const ProjectWindow = ({
               <div className="px-3 mb-4">
                 <span className="px-3 text-[9px] font-bold text-white/30 uppercase tracking-wider mb-1 block">Favourites</span>
                 <div className="space-y-1">
-                  <Link href="/ShashwatGohel_Resume-1.pdf" target="_blank" className="flex items-center gap-2 px-3 py-1.5 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer">
+                  <Link href="/ShashwatGohel_Resume_Backend.pdf" target="_blank" className="flex items-center gap-2 px-3 py-1.5 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer">
                     <File size={14} className="text-white/50" />
                     <span className="text-[11px] font-medium tracking-tight">Resume</span>
                   </Link>

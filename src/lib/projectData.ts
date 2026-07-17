@@ -57,6 +57,66 @@ export const PROJECTS: Project[] = [
     }
   },
   {
+    id: "helix",
+    title: "Helix",
+    description: "Backend-focused load balancer simulator and reverse proxy with real-time terminal metrics, health monitoring, and rate limiting.",
+    tech: ["Node.js", "HTTP/TCP", "Load Balancing", "Rate Limiting", "TUI"],
+    category: "sde",
+    details: {
+      introduction: "Helix is a backend-focused terminal application that simulates how modern load balancers distribute incoming traffic across multiple backend servers using different scheduling algorithms.",
+      features: [
+        "Interactive Terminal Dashboard: Real-time infrastructure metrics, request routing, and server health monitoring.",
+        "Automatic Failover & Overload Detection: Automatically routes traffic away from unhealthy SDE backend instances.",
+        "Real HTTP Reverse Proxying: Directs live incoming traffic to active backend servers in Node.js.",
+        "Rate Limiting & Scaling: Supports token-bucket/leaky-bucket rate limiting and horizontal auto-scaling with bounded overflow queues."
+      ],
+      techStackDetailed: ["Node.js", "HTTP Reverse Proxy", "Token-Bucket / Leaky-Bucket", "Concurrency & Events", "Interactive TUI / CLI", "JSON Reporting"],
+      requirements: ["Node.js >= 18", "Terminal environment"],
+      achievements: [
+        "Engineered real HTTP reverse proxying simulation in Node.js handling concurrent connections",
+        "Implemented custom rate limiting and auto-scaling algorithms with bounded backpressure",
+        "Developed a responsive CLI dashboard for live monitoring and JSON session exports"
+      ],
+      cloneGuide: [
+        { step: "Clone Repository", command: "git clone https://github.com/ShashwatGohel/Helix.git" },
+        { step: "Navigate to Directory", command: "cd Helix" },
+        { step: "Launch Simulation", command: "node .\\server.js" }
+      ],
+      githubLink: "https://github.com/ShashwatGohel/Helix"
+    }
+  },
+  {
+    id: "codearena",
+    title: "CodeArena",
+    description: "Proctored competitive coding examination platform supporting 200+ concurrent students, queue-based code evaluation, and active anti-cheat protection.",
+    tech: ["Node.js", "Express.js", "React.js", "MongoDB", "Redis", "WebSockets"],
+    category: "sde",
+    details: {
+      introduction: "CodeArena is a proctored coding examination platform built for educational institutions to facilitate online programming assessments with automated evaluation and active cheating prevention.",
+      features: [
+        "Concurrent Code Evaluation: Queue-based code execution engine using Judge0 and BullMQ supporting 6+ programming languages.",
+        "Real-time Proctoring: Bidirectional WebSockets communication for live exam monitoring.",
+        "4-Layer Anti-Cheat System: Integrated fullscreen locks, tab-switch tracking, window focus loss detection, and keystroke anomaly logging.",
+        "Monaco Code Editor: Rich editor environment inside the browser."
+      ],
+      techStackDetailed: ["Node.js", "Express.js", "React.js", "MongoDB", "Redis", "BullMQ Queue System", "Judge0 API", "WebSockets", "Monaco Editor", "Docker"],
+      requirements: ["Node.js >= 18", "Docker (for Judge0)", "Redis Server", "MongoDB"],
+      achievements: [
+        "Engineered BullMQ evaluation queue handling 200+ concurrent students across 6 languages",
+        "Built a robust 4-layer anti-cheat suite protecting exam integrity",
+        "Implemented real-time proctored session telemetry via WebSocket communication"
+      ],
+      cloneGuide: [
+        { step: "Clone Repository", command: "git clone https://github.com/ShashwatGohel/CodeArena-Ahmedabad-University-Coding-Platform.git" },
+        { step: "Install Dependencies", command: "npm install" },
+        { step: "Configure Environment", command: "cp .env.example .env" },
+        { step: "Spin up Containers", command: "docker-compose up -d" },
+        { step: "Start Platform", command: "npm run dev" }
+      ],
+      githubLink: "https://github.com/ShashwatGohel/CodeArena-Ahmedabad-University-Coding-Platform"
+    }
+  },
+  {
     id: "kyc-chain",
     title: "Decentralized KYC",
     description: "Hash-based document verification system using ZK-Proofs.",

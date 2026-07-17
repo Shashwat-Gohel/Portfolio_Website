@@ -26,6 +26,18 @@ export default function Experience() {
       skills: ["Next.js 15", "TypeScript", "Tailwind CSS", "Vercel", "Performance Tuning"],
       liveLink: "https://zetalayers.com"
     },
+    {
+      title: "Community Contributor",
+      company: "PClub",
+      period: "Jun'26 - Pursuing",
+      location: "Programming Club, Ahmedabad University, Ahmedabad",
+      description: "Contributing backend and full-stack features to the Programming Club website (pclub.in), with changes merged via GitHub PRs.",
+      achievements: [
+        "Engineered server-side pagination for Events, Gallery, and CP-Gym modules using MongoDB aggregation pipelines and offset-based querying; merged via GitHub PRs",
+        "Built a categorized Resources Hub with search and filters, improving content discoverability across the platform"
+      ],
+      skills: ["Node.js", "MongoDB", "Aggregation Pipelines", "Next.js", "React.js", "Git & GitHub"]
+    }
   ];
 
   const handleOpenRole = (role: ExperienceRole) => {
