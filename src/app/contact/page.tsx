@@ -376,7 +376,7 @@ STATUS: ENCRYPTED & ONLINE`,
                 <div className="space-y-2">
                   <h3 className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] ml-2 mb-3">Professional</h3>
                   <div className="space-y-1">
-                    <a href="https://github.com/shashwatgohel" target="_blank" className="flex items-center gap-3 px-3 py-2 text-[11px] font-medium text-white/40 hover:text-white/90 hover:bg-white/5 rounded-lg transition-all group">
+                    <a href="https://github.com/Shashwat-Gohel" target="_blank" className="flex items-center gap-3 px-3 py-2 text-[11px] font-medium text-white/40 hover:text-white/90 hover:bg-white/5 rounded-lg transition-all group">
                       <GitHubIcon size={12} />
                       <span className="flex-1">Repository</span>
                     </a>

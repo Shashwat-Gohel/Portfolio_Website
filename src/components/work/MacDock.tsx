@@ -51,7 +51,7 @@ const GmailIcon = ({ size, color, className }: any) => (
 );
 
 const dockItems = [
-  { name: "GitHub", icon: GithubIcon, color: "#ffffff", gradient: "from-[#24292e] to-[#040d16]", link: "https://github.com/shashwatgohel", target: "_blank" },
+  { name: "GitHub", icon: GithubIcon, color: "#ffffff", gradient: "from-[#24292e] to-[#040d16]", link: "https://github.com/Shashwat-Gohel", target: "_blank" },
   { name: "LinkedIn", icon: LinkedinIcon, color: "#ffffff", gradient: "from-[#0077b5] to-[#004182]", link: "https://linkedin.com/in/shashwatgohel", target: "_blank" },
   { name: "Mail", icon: GmailIcon, color: "#ffffff", gradient: "from-[#EA4335] via-[#DB4437] to-[#C5221F]", link: "/contact" },
   { name: "LeetCode", icon: LeetCodeIcon, color: "#ffffff", gradient: "from-[#FFA116] to-[#F1592B]", link: "https://leetcode.com/shashwatgohel", target: "_blank" },
